@@ -1,7 +1,7 @@
 v0.00.1 = lancement
 v0.00.2 = ajout volume pour SoundCloud
 v0.00.3 = ajout musique
+v0.00.4 = mode responsive + ajout musique variée + readMe.md
 
 ** Next Step **
-responsive mobile
-trie a effectué 
+trie a effectué pour passer en v1

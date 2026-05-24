@@ -215,11 +215,46 @@ body {
 }
 
 /* ═══════════════════════════════════════
-   Responsive — mobile ≤ 580px
+   Responsive — tablette ≤ 900px
 ═══════════════════════════════════════ */
-@media (max-width: 580px) {
-  :root { --left-w: 120px; }
+@media (max-width: 900px) {
+  :root { --left-w: 220px; }
+}
 
-  #art-label { font-size: 0.62em; letter-spacing: 1px; }
-  .track-item { padding: 10px 12px; gap: 8px; }
+/* ═══════════════════════════════════════
+   Responsive — mobile ≤ 600px
+═══════════════════════════════════════ */
+@media (max-width: 600px) {
+  body { overflow: auto; }
+
+  #app {
+    flex-direction: column;
+    height: auto;
+    min-height: 100svh;
+  }
+
+  #left-panel {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  #art-box {
+    aspect-ratio: unset;
+    height: 130px;
+    font-size: 2.5em;
+  }
+
+  #track-list {
+    max-height: 38vh;
+  }
+
+  #right-panel {
+    flex: 1;
+    min-height: 45vh;
+  }
+
+  .track-item  { padding: 10px 14px; gap: 10px; }
+  .track-title { font-size: 0.82em; }
+  .track-num   { font-size: 0.75em; }
 }
