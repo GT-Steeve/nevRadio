@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NevRadio</title>
+  <link rel="stylesheet" href="asset/css/style.css">
+  <link rel="icon" type="image/x-icon" href="asset/img/faviconM.png">
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- ══ Panneau gauche ══ -->
+    <div id="left-panel">
+
+      <!-- Pochette -->
+      <div id="art-box">♪</div>
+
+      <!-- Bande colorée : sélecteur de catégorie intégré -->
+      <div id="art-label">
+        <select id="category-select">
+          <option value="">— NevRadio —</option>
+        </select>
+      </div>
+
+      <!-- Liste des pistes -->
+      <div id="track-list"></div>
+
+    </div>
+
+    <!-- ══ Panneau droit ══ -->
+    <div id="right-panel">
+
+
+      <!-- Lecteur vidéo YouTube -->
+      <div id="video-container">
+        <iframe
+          id="yt-iframe"
+          allowfullscreen
+          allow="autoplay; encrypted-media"
+        ></iframe>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="asset/js/app.js"></script>
+</body>
+</html>
