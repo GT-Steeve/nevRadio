@@ -1,6 +1,7 @@
 v0.00.1 = lancement
 v0.00.2 = ajout volume pour SoundCloud
+v0.00.3 = ajout musique
 
 ** Next Step **
 responsive mobile
-swap cloundsnound
+trie a effectué 
