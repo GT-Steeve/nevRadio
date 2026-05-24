@@ -9,11 +9,11 @@
 
 const CATEGORIES = [
   {
-    name: "Vrac",
+    name: "Musique",
     cover: "",
     tracks: [
-      { title: "Estelle - American Boy", url: "https://www.youtube.com/watch?v=Ic5vxw3eijY" },
-      { title: "Piste 2", url: "" },
+      { title: "American Boy - Estelle (feat. Kanye West)", url: "https://soundcloud.com/estelleofficial/american-boy-feat-kanye-west" },
+      { title: "Bad guy - Billie Eilish", url: "https://soundcloud.com/billieeilish/bad-guy" },
     ]
   },
   {
@@ -63,6 +63,53 @@ const trackList      = document.getElementById('track-list');
 const videoContainer = document.getElementById('video-container');
 const ytIframe       = document.getElementById('yt-iframe');
 const artBox         = document.getElementById('art-box');
+const scControls     = document.getElementById('sc-controls');
+const volDownBtn     = document.getElementById('vol-down');
+const volUpBtn       = document.getElementById('vol-up');
+const volMuteBtn     = document.getElementById('vol-mute');
+
+// ── Volume SoundCloud ──────────────────────────────────
+let scVolume = 80;
+let scMuted  = false;
+let scWidget = null;
+
+function loadSCApi(cb) {
+  if (window.SC) { cb(); return; }
+  const s = document.createElement('script');
+  s.src = 'https://w.soundcloud.com/player/api.js';
+  s.onload = cb;
+  document.head.appendChild(s);
+}
+
+function initSCWidget() {
+  scWidget = SC.Widget(ytIframe);
+  scWidget.bind(SC.Widget.Events.READY, () => scWidget.setVolume(scVolume));
+}
+
+function applyVolume() {
+  if (scWidget) scWidget.setVolume(scMuted ? 0 : scVolume);
+  if (scMuted || scVolume === 0) volMuteBtn.textContent = '🔇';
+  else if (scVolume < 34)        volMuteBtn.textContent = '🔈';
+  else if (scVolume < 67)        volMuteBtn.textContent = '🔉';
+  else                           volMuteBtn.textContent = '🔊';
+}
+
+volDownBtn.addEventListener('click', () => {
+  scVolume = Math.max(0, scVolume - 10);
+  scMuted  = false;
+  applyVolume();
+});
+
+volUpBtn.addEventListener('click', () => {
+  scVolume = Math.min(100, scVolume + 10);
+  scMuted  = false;
+  applyVolume();
+});
+
+volMuteBtn.addEventListener('click', () => {
+  scMuted = !scMuted;
+  applyVolume();
+});
 
 // ── Peuple le <select> ─────────────────────────────────
 function buildCategories() {
@@ -125,10 +172,14 @@ function selectCategory(index) {
   });
 }
 
-// ── Extrait l'ID d'une URL YouTube ─────────────────────
+// ── Détection du type d'URL ────────────────────────────
 function extractYTId(url) {
   const m = url.match(/(?:v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11})/);
   return m ? m[1] : null;
+}
+
+function isSoundCloud(url) {
+  return /soundcloud\.com\//i.test(url);
 }
 
 // ── Lance la lecture ───────────────────────────────────
@@ -147,13 +198,28 @@ function playTrack(catIndex, trackIndex) {
   const ytId = extractYTId(track.url);
 
   if (ytId) {
-    // Piste YouTube : affiche l'iframe dans le panneau droit
+    // YouTube → iframe YouTube
     audio.pause();
     audio.src = '';
+    scWidget = null;
+    scControls.classList.remove('visible');
     ytIframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1`;
     videoContainer.classList.add('visible');
+  } else if (isSoundCloud(track.url)) {
+    // SoundCloud → widget SoundCloud + bouton volume
+    audio.pause();
+    audio.src = '';
+    scVolume = 80;
+    scMuted  = false;
+    volMuteBtn.textContent = '🔊';
+    ytIframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(track.url)}&auto_play=true&hide_related=true&show_comments=false&visual=true`;
+    videoContainer.classList.add('visible');
+    scControls.classList.add('visible');
+    ytIframe.onload = () => loadSCApi(initSCWidget);
   } else {
-    // Piste audio : masque l'iframe, lit l'audio
+    // Lien direct (.mp3, etc.) → balise audio
+    scWidget = null;
+    scControls.classList.remove('visible');
     ytIframe.src = '';
     videoContainer.classList.remove('visible');
     audio.src = track.url;
