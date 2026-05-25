@@ -28,7 +28,9 @@ const CATEGORIES = [
     tracks: [
       { title: "Aram Khachaturian - Sabre Dance", url: "https://www.youtube.com/watch?v=gqg3l3r_DRI" },
       { title: "Boléro - Maurice Ravel", url: "https://www.youtube.com/watch?v=r30D3SW4OVw" },
+      { title: "Eugen Doga - Gramofon Waltz/Gramophone", url: "https://www.youtube.com/watch?v=1p0pe-1_xUk" },
       { title: "Freedom To Move (Domino Theory Remix)", url: "https://www.youtube.com/watch?v=Ta2crGpWETk" },
+      { title: "Merry-Go-Round of Life - Joe Hisaishi", url: "https://www.youtube.com/watch?v=f7SS57LFPco" },
       { title: "Lacrimosa - Wolfgang Amadeus Mozart", url: "https://www.youtube.com/watch?v=k1-TrAvp_xs" },
       { title: "Nocturne op.9 No.2 - Chopin", url: "https://www.youtube.com/watch?v=9E6b3swbnWg" },
     ]
@@ -94,6 +96,21 @@ const CATEGORIES = [
     ]
   },
   {
+    name: "Guilty Gear",
+    cover: "https://i.ebayimg.com/images/g/XMIAAOSwt29kP0N-/s-l1200.jpg",
+    tracks: [
+      { title: "GGXRD Revelator - Area 42 [Dizzy]", url: "https://www.youtube.com/watch?v=ncWxpX8QM7U" },
+      { title: "GGXX - A Solitude That Asks Nothing In Return", url: "https://www.youtube.com/watch?v=q5vNxUf27YM" },
+      { title: "GGXX - Blue Water Blue Sky", url: "https://www.youtube.com/watch?v=qhpisRcYuZw" },
+      { title: "GGXX - Burly Heart", url: "https://www.youtube.com/watch?v=L05wAbRJ5BQ" },
+      { title: "GGXX - Existence", url: "https://www.youtube.com/watch?v=BVe78_xv1Lg" },
+      { title: "GGXX - Still In The Dark", url: "https://www.youtube.com/watch?v=p_S43AP1tgc" },
+      { title: "GGXX - The Midnight Carnival", url: "https://www.youtube.com/watch?v=LKJ9AVrpM9s" },
+      { title: "GGXXAC+ - Keep the Flag Flying", url: "https://www.youtube.com/watch?v=52ApW6NIjRA" },
+      { title: "GGXXAC+ - Keep In Gates [A.B.A.]", url: "https://www.youtube.com/watch?v=QyM3zU-_SNU" },
+    ]
+  },
+  {
     name: "Gunstar Heroes",
     cover: "https://image.jeuxvideo.com/images-sm/mg/g/u/gustmg0f.jpg",
     tracks: [
@@ -132,12 +149,12 @@ const CATEGORIES = [
       { title: "Bloody Roar 4 - Opening Demo", url: "https://www.youtube.com/watch?v=YwybO2DFm5c" },
       { title: "Daredevil (Extended) - Ace Combat 7", url: "https://www.youtube.com/watch?v=OYjlsO7-mzA" },
       { title: "Fortnite - You Don't Know Me Lobby", url: "https://www.youtube.com/watch?v=kWp5S7DrdfQ" },
-      { title: "Gedo High School - Rival Schools", url: "https://www.youtube.com/watch?v=QPcCcorpTrg" },
       { title: "Horizon Zero Dawn - Aloy's Theme", url: "https://www.youtube.com/watch?v=P2JNQhAsIHA" },
+      { title: "Rival Schools - Gedo High School", url: "https://www.youtube.com/watch?v=QPcCcorpTrg" },
+      { title: "Rival Schools - Taiyo High School", url: "https://www.youtube.com/watch?v=5nW7q0Sv3jU" },
       { title: "SPARKING (Extended) - Tekken 5", url: "https://www.youtube.com/watch?v=9U2u31Bv_uk" },
       { title: "Star Fox - Corneria", url: "https://www.youtube.com/watch?v=oBD3FO6ozXc" },
       { title: "Streets Of New Meridian - Skullgirls", url: "https://www.youtube.com/watch?v=EY6-zgbQI6Y" },
-      { title: "Taiyo High School - Rival Schools", url: "https://www.youtube.com/watch?v=5nW7q0Sv3jU" },
       { title: "Tekken 3 - Hwoarang Theme", url: "https://www.youtube.com/watch?v=ZTzvLjEkMWE" },
       { title: "Tekken 5 - Moonlit Wilderness", url: "https://www.youtube.com/watch?v=ClvzNSejzXw" },
     ]
