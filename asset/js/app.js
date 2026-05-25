@@ -9,152 +9,6 @@
 
 const CATEGORIES = [
   {
-    name: "Musique",
-    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKZw7nwfd-KbW98Jff-q-gAcckg2wLXH7-npDLsjqdZCo0nCGk0YhAIb-rjkxw9AGetHE",
-    tracks: [
-      { title: "American Boy - Estelle (feat. Kanye West)", url: "https://soundcloud.com/estelleofficial/american-boy-feat-kanye-west" },
-      { title: "Bad Guy - Billie Eilish", url: "https://soundcloud.com/billieeilish/bad-guy" },
-      { title: "Robin Thicke - Blurred Lines ft. T.I., Pharrell", url: "https://www.youtube.com/watch?v=yyDUC1LUXSU" },
-      { title: "Chamillionaire - Ridin'", url: "https://www.youtube.com/watch?v=CtwJvgPJ9xw" },
-      { title: "Carly Rae Jepsen - Call Me Maybe", url: "https://www.youtube.com/watch?v=fWNaR-rxAic" },
-      { title: "Jessie J - Price Tag ft. B.o.B", url: "https://www.youtube.com/watch?v=qMxX-QOV9tI" },
-      { title: "OMI - Cheerleader", url: "https://www.youtube.com/watch?v=jGflUbPQfW8" },
-      { title: "Black Mamba - Ghetto Millionnaire", url: "https://www.youtube.com/watch?v=lTqVCJRju_Q" },
-      { title: "Desiigner - Panda", url: "https://www.youtube.com/watch?v=E5ONTXHS2mM" },
-      { title: "Kat DeLuna - Run The Show ft. Busta Rhymes", url: "https://www.youtube.com/watch?v=fhsHOlliExk" },
-      { title: "Pitbull - Timber ft. Ke$ha", url: "https://www.youtube.com/watch?v=hHUbLv4ThOo" },
-      { title: "Pitbull - Give Me Everything ft. Ne-Yo, Afrojack, Nayer", url: "https://www.youtube.com/watch?v=EPo5wWmKEaI" },
-      { title: "The High Strung - The Luck You Got (Shameless Theme)", url: "https://www.youtube.com/watch?v=b3KuMFXm2xk" },
-      { title: "Bobby McFerrin - Don't Worry Be Happy", url: "https://www.youtube.com/watch?v=d-diB65scQU" },
-      { title: "The Boys are Back in Town - Thin Lizzy", url: "https://www.youtube.com/watch?v=hQo1HIcSVtg" },
-      { title: "Don't Stop Me Now - Queen", url: "https://www.youtube.com/watch?v=hBp4dgE7Bho" },
-      { title: "Beach Boys - I Get Around", url: "https://www.youtube.com/watch?v=wREBD2og5iY" },
-      { title: "Woodkid - Iron", url: "https://www.youtube.com/watch?v=nj9ucBQ04Ag" },
-      { title: "Freedom To Move (Domino Theory Remix)", url: "https://www.youtube.com/watch?v=Ta2crGpWETk" },
-      { title: "Lacrimosa - Wolfgang Amadeus Mozart", url: "https://www.youtube.com/watch?v=k1-TrAvp_xs" },
-      { title: "Aram Khachaturian - Sabre Dance", url: "https://www.youtube.com/watch?v=gqg3l3r_DRI" },
-      { title: "Lauryn Hill - Doo Wop", url: "https://www.youtube.com/watch?v=G5zirRc34Xc" },
-      { title: "Beggin - Madcon", url: "https://www.youtube.com/watch?v=fn8jB0Ubx5s" },
-      { title: "Lemar - If There's Any Justice", url: "https://www.youtube.com/watch?v=35KXjhvUHuA" },
-      { title: "Sean Kingston - Me Love", url: "https://www.youtube.com/watch?v=t130Gzik-RM" },
-      { title: "Sean Kingston - Beautiful Girls", url: "https://www.youtube.com/watch?v=7lBUiFdQLu0" },
-      { title: "GALA - Freed From Desire", url: "https://www.youtube.com/watch?v=kHV_zePxnmY" },
-      { title: "The Supermen Lovers - Starlight", url: "https://www.youtube.com/watch?v=ByK5qt0pRg8" },
-      { title: "Adele - Skyfall", url: "https://www.youtube.com/watch?v=LJzp_mDxaT0" },
-      { title: "Maurice Ravel - Boléro", url: "https://www.youtube.com/watch?v=r30D3SW4OVw" },
-      { title: "Chopin - Nocturne op.9 No.2", url: "https://www.youtube.com/watch?v=9E6b3swbnWg" },
-      { title: "Busta Rhymes - Touch It Remix", url: "https://www.youtube.com/watch?v=Kb27CH9eXnU" },
-      { title: "Fugees - Ready or Not", url: "https://www.youtube.com/watch?v=aIXyKmElvv8" },
-      { title: "Coolio - Gangsta's Paradise", url: "https://www.youtube.com/watch?v=fPO76Jlnz6c" },
-      { title: "The Roots - You Got Me", url: "https://www.youtube.com/watch?v=nR-nB3_-kpg" },
-      { title: "Rockwell - Somebody's Watching Me", url: "https://www.youtube.com/watch?v=pHS4IUP8dDw" },
-      { title: "Pharoahe Monch - Simon Says", url: "https://www.youtube.com/watch?v=52PHX4m07aI" },
-      { title: "Ludacris - Act a Fool", url: "https://www.youtube.com/watch?v=YvHbvnIttec" },
-      { title: "Ludacris - Stand Up ft. Shawnna", url: "https://www.youtube.com/watch?v=pZG7IK99OvI" },
-      { title: "Blackstreet - No Diggity", url: "https://www.youtube.com/watch?v=IRgNDaNfci4" },
-      { title: "2Pac - Write This Down", url: "https://www.youtube.com/watch?v=pdEZSC_oN-Q" },
-      { title: "Wu-Tang Clan - Back In The Game", url: "https://www.youtube.com/watch?v=58HQeed8Vhg" },
-      { title: "Ja Rule ft. R. Kelly, Ashanti - Wonderful", url: "https://www.youtube.com/watch?v=8NgA6bZUpcA" },
-      { title: "Ja Rule - Put It On Me ft. Vita, Lil' Mo", url: "https://www.youtube.com/watch?v=JBGHFDbbios" },
-      { title: "Montell Jordan - This Is How We Do It", url: "https://www.youtube.com/watch?v=LWN0vQpwcKM" },
-      { title: "King Geedorah - Fazers", url: "https://www.youtube.com/watch?v=LWN0vQpwcKM" },
-      { title: "Rick Ross - I'm Not A Star", url: "https://www.youtube.com/watch?v=O9f9iEy1XqQ" },
-      { title: "Lil Nas X, Jack Harlow - INDUSTRY BABY", url: "https://www.youtube.com/watch?v=HCq1OcAEAm0" },
-      { title: "Chris Brown - Run It", url: "https://www.youtube.com/watch?v=PGfMRXIa4jE" },
-      { title: "Lauryn Hill - Can't Take My Eyes Off Of You", url: "https://www.youtube.com/watch?v=wVzvXW9bo5U" },
-      { title: "Lauryn Hill - Everything Is Everything", url: "https://www.youtube.com/watch?v=i3_dOWYHS7I" },
-      { title: "Fonky Family - Art de Rue", url: "https://www.youtube.com/watch?v=JQwxomwU1k4" },
-      { title: "113 - Au Summum", url: "https://www.youtube.com/watch?v=U_h2obefiEk" },
-      { title: "IAM - Nés sous la même étoile", url: "https://www.youtube.com/watch?v=rn_UjJN3YQU" },
-      { title: "Sniper - Pris pour cible", url: "https://www.youtube.com/watch?v=LVUPOaDSjQQ" },
-      { title: "Suprême NTM - Laisse pas traîner ton fils", url: "https://www.youtube.com/watch?v=biYdUZXfz9I" },
-      { title: "Snoop Dogg - Drop It Like It's Hot ft. Pharrell Williams", url: "https://www.youtube.com/watch?v=GtUVQei3nX4" },
-      { title: "Nas - Affirmative Action", url: "https://www.youtube.com/watch?v=1c8Hl12hLuc" },
-      { title: "Nas - If I Ruled the World", url: "https://www.youtube.com/watch?v=-8dyp89uWxA" },
-      { title: "Busta Rhymes feat. Ron Brownz - Arab Money", url: "https://www.youtube.com/watch?v=-nvhPOFKB3o" },
-      { title: "Busta Rhymes - Pass The Courvoisier Part II ft. P. Diddy, Pharrell", url: "https://www.youtube.com/watch?v=o4ZUaxyPoZ8" },
-      { title: "Blu Cantrell - Breathe ft. Sean Paul", url: "https://www.youtube.com/watch?v=wfTC2o05OEw" },
-      { title: "The Notorious B.I.G. - Nasty Girl", url: "https://www.youtube.com/watch?v=ufKxCclo7-c" },
-      { title: "Shingeki No Kyojin - Rumbling", url: "https://www.youtube.com/watch?v=tCUUcrtfyuU" },
-      { title: "Vergil Battle 2 - Devil May Cry 3 Extended", url: "https://www.youtube.com/watch?v=l_kB97VrKBA" },
-    ]
-  },
-  {
-    name: "Ost Film",
-    cover: "https://cerhic.hypotheses.org/files/2016/11/musique-film-beberanol-copie-634x372.png",
-    tracks: [
-      { title: "Star Wars - Duel of the Fates", url: "https://www.youtube.com/watch?v=g_BB0tj4tf8" },
-      { title: "Clubbed to Death - Matrix", url: "https://www.youtube.com/watch?v=20TX1VlWtzw" },
-      { title: "Rob Dougan - Chateau Extended", url: "https://www.youtube.com/watch?v=KCNOe7s1lD0" },
-      { title: "Ace Savage - Scheming (Extended Instrumental Slowed)", url: "https://www.youtube.com/watch?v=f6GAPrvKp2I" },
-    ]
-  },
-  {
-    name: "Jeux Vidéo",
-    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTli78tNVhAncK0HxrrxUJyf1oc4Ls-yjYsLeZqYwe-Io7wMPNQ84QfTZWIMy47E0QtR9w",
-    tracks: [
-      { title: "Horizon Zero Dawn - Aloy's Theme", url: "https://www.youtube.com/watch?v=P2JNQhAsIHA" },
-      { title: "Daredevil (Extended) - Ace Combat 7", url: "https://www.youtube.com/watch?v=OYjlsO7-mzA" },
-      { title: "Streets Of New Meridian - Skullgirls", url: "https://www.youtube.com/watch?v=EY6-zgbQI6Y" },
-      { title: "Taiyo High School - Rival Schools", url: "https://www.youtube.com/watch?v=5nW7q0Sv3jU" },
-      { title: "Gedo High School - Rival Schools", url: "https://www.youtube.com/watch?v=QPcCcorpTrg" },
-      { title: "Bloody Roar 3 - Into the Battlefield", url: "https://www.youtube.com/watch?v=rb9r7JW96ZU" },
-      { title: "Bloody Roar 4 - Opening Demo", url: "https://www.youtube.com/watch?v=YwybO2DFm5c" },
-      { title: "Tekken 5 - Moonlit Wilderness", url: "https://www.youtube.com/watch?v=ClvzNSejzXw" },
-      { title: "SPARKING (Extended) - Tekken 5", url: "https://www.youtube.com/watch?v=9U2u31Bv_uk" },
-      { title: "Tekken 3 - Hwoarang Theme", url: "https://www.youtube.com/watch?v=ZTzvLjEkMWE" },
-      { title: "Fortnite - You Don't Know Me Lobby", url: "https://www.youtube.com/watch?v=kWp5S7DrdfQ" },
-      { title: "Star Fox - Corneria", url: "https://www.youtube.com/watch?v=oBD3FO6ozXc" },
-    ]
-  },
-  {
-    name: "Dragon Ball Z",
-    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcB-Ajc9jc9b4NAFTHqRYyIoU_cbMHOoMwQhNoE4pgM1MYIUa6B_Lz8eCwSCyRkhqm5SI",
-    tracks: [
-      { title: "Dragon Ball Z - Best Music Part 1 | Epic Fight", url: "https://www.youtube.com/watch?v=218ELDhIiGY" },
-      { title: "Ultimate Battle - Dragon Ball Super", url: "https://www.youtube.com/watch?v=grtO6zxMY6I" },
-      { title: "Dragon Ball Super - Jiren Theme Song", url: "https://www.youtube.com/watch?v=Ibb_B4bQ6VM" },
-      { title: "Dragon Ball Super - Genkai Toppa × Survivor", url: "https://www.youtube.com/watch?v=4apvo3w97qY" },
-    ]
-  },
-  {
-    name: "Hunter X Hunter",
-    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS07mV21CT4Ce7WFo0kmBskWVVjKdB5nWbXbMXPR3I3gkG4KJ1yU4DTbWOER6eEXMNV8zo",
-    tracks: [
-      { title: "Hunter X Hunter OST - Kingdom Of Predators", url: "https://www.youtube.com/watch?v=T8ex7oKbjhU" },
-      { title: "Hunter x Hunter 2011 OST 3 - G.I Theme", url: "https://www.youtube.com/watch?v=KR2P_g_MXzk" },
-    ]
-  },
-  {
-    name: "One Piece",
-    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ22Ql38iEey5v0tbjuX-Jpe7Wy0mpk5uYKeA",
-    tracks: [
-      { title: "One Piece - Fight Music Compilation (OST)", url: "https://www.youtube.com/watch?v=SYZao9qhyLI" },
-      { title: "One Piece - Castle Karakuri Transform (Extended)", url: "https://www.youtube.com/watch?v=kVMvzIdkM-Q" },
-      { title: "One Piece Opening 12", url: "https://www.youtube.com/watch?v=eS0hCgXMnT4" },
-    ]
-  },
-  {
-    name: "Persona",
-    cover: "https://global-img.gamergen.com/persona-25th-anniversary-13-07-2021_0900984927.jpg",
-    tracks: [
-      { title: "It's Going Down Now", url: "https://www.youtube.com/watch?v=2KuWjZD6PBA" },
-      { title: "Sky's The Limit", url: "https://www.youtube.com/watch?v=O0cI9N5rfrg" },
-    ]
-  },
-  {
-    name: "SNK",
-    cover: "https://m.media-amazon.com/images/S/pv-target-images/abce4f3146841f9aa66e9963531ab38e64108ecaa79b93e5a2781c89c59ebaac.jpg",
-    tracks: [
-      { title: "Attack on Titan Season 4 - Epic Soundtrack Mix", url: "https://www.youtube.com/watch?v=ri6YWr03izo" },
-      { title: "SNK - Return to Revelio", url: "https://www.youtube.com/watch?v=sZyirQuRzbM" },
-      { title: "Guren no Yumiya | Season 1", url: "https://www.youtube.com/watch?v=2B6nj38AdD0" },
-      { title: "Shinzou wo Sasageyo | Season 2", url: "https://www.youtube.com/watch?v=iA7c314_SWM" },
-      { title: "Shinzou wo Sasageyo | Season 3", url: "https://www.youtube.com/watch?v=wwfwjEroBXc" },
-      { title: "The Rumbling (Extended) | Season 4", url: "https://www.youtube.com/watch?v=mE53L3UMLFs" },
-    ]
-  },
-  {
     name: "Blazblue",
     cover: "https://n-gamz.com/wp-content/uploads/2016/11/blazblue-central-fiction-test-review-screen-logo.jpg",
     tracks: [
@@ -166,6 +20,17 @@ const CATEGORIES = [
       { title: "Continuum Shift Intro", url: "https://www.youtube.com/watch?v=QsbjKVx_8-s" },
       { title: "Chrono Phantasma Arcade", url: "https://www.youtube.com/watch?v=KFY6e1b4hSk" },
       { title: "Calamity Trigger Arcade Opening", url: "https://www.youtube.com/watch?v=m3t9YFu2StQ" },
+    ]
+  },
+  {
+    name: "Classic / Opéra",
+    cover: "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da847a76a28001f1de84e48e3356",
+    tracks: [
+      { title: "Aram Khachaturian - Sabre Dance", url: "https://www.youtube.com/watch?v=gqg3l3r_DRI" },
+      { title: "Boléro - Maurice Ravel", url: "https://www.youtube.com/watch?v=r30D3SW4OVw" },
+      { title: "Freedom To Move (Domino Theory Remix)", url: "https://www.youtube.com/watch?v=Ta2crGpWETk" },
+      { title: "Lacrimosa - Wolfgang Amadeus Mozart", url: "https://www.youtube.com/watch?v=k1-TrAvp_xs" },
+      { title: "Nocturne op.9 No.2 - Chopin", url: "https://www.youtube.com/watch?v=9E6b3swbnWg" },
     ]
   },
   {
@@ -192,19 +57,40 @@ const CATEGORIES = [
     ]
   },
   {
+    name: "Dragon Ball Z",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcB-Ajc9jc9b4NAFTHqRYyIoU_cbMHOoMwQhNoE4pgM1MYIUa6B_Lz8eCwSCyRkhqm5SI",
+    tracks: [
+      { title: "Dragon Ball Z - Best Music Part 1 | Epic Fight", url: "https://www.youtube.com/watch?v=218ELDhIiGY" },
+      { title: "Ultimate Battle - Dragon Ball Super", url: "https://www.youtube.com/watch?v=grtO6zxMY6I" },
+      { title: "Dragon Ball Super - Jiren Theme Song", url: "https://www.youtube.com/watch?v=Ibb_B4bQ6VM" },
+      { title: "Dragon Ball Super - Genkai Toppa × Survivor", url: "https://www.youtube.com/watch?v=4apvo3w97qY" },
+    ]
+  },
+  {
+    name: "Film",
+    cover: "https://cerhic.hypotheses.org/files/2016/11/musique-film-beberanol-copie-634x372.png",
+    tracks: [
+      { title: "Adele - Skyfall", url: "https://www.youtube.com/watch?v=LJzp_mDxaT0" },
+      { title: "Clubbed to Death - Matrix", url: "https://www.youtube.com/watch?v=20TX1VlWtzw" },
+      { title: "Rob Dougan - Chateau Extended", url: "https://www.youtube.com/watch?v=KCNOe7s1lD0" },
+      { title: "Star Wars - Duel of the Fates", url: "https://www.youtube.com/watch?v=g_BB0tj4tf8" },
+    ]
+  },
+  {
     name: "Final Fantasy",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ81Qx2wTdn8p9WDEfYAVXzXgdKFm-cfyHlMgS4NF_A7gH8DEL56lo8sJQamvpSE2a_nw",
     tracks: [
-      { title: "Cosmo Canyon - FF7", url: "https://www.youtube.com/watch?v=F6mgso2LfCg" },
-      { title: "Let the Battles Begin! - FF7 Extended", url: "https://www.youtube.com/watch?v=ufboXid14Q0" },
-      { title: "Fight On! Boss Battle - FF7", url: "https://www.youtube.com/watch?v=0VL1RXzyAsE" },
-      { title: "Jenova - FF7", url: "https://www.youtube.com/watch?v=m9kGaw216HM" },
       { title: "Battle Theme - Final Fantasy V", url: "https://www.youtube.com/watch?v=u7ee_xrawZs" },
-      { title: "Main Theme of Final Fantasy V", url: "https://www.youtube.com/watch?v=UYIafOKKo-I" },
-      { title: "Final Fantasy Battle Themes 1-14", url: "https://www.youtube.com/watch?v=-Xwk-yqHIvw" },
+      { title: "Cosmo Canyon - FF7", url: "https://www.youtube.com/watch?v=F6mgso2LfCg" },
       { title: "FF Tactics Advance - Undefeated Heart", url: "https://www.youtube.com/watch?v=QIGMzr7Yj1k" },
       { title: "FF Tactics Advance - Unavoidable Destiny", url: "https://www.youtube.com/watch?v=e6Mzx1W6VK4" },
       { title: "FF Tactics Advance - Painful Battle", url: "https://www.youtube.com/watch?v=1o1Cbhe3GqY" },
+      { title: "FF7 - Fight theme", url: "https://www.youtube.com/watch?v=7HV3oyxr0Eg" },
+      { title: "Fight On! Boss Battle - FF7", url: "https://www.youtube.com/watch?v=0VL1RXzyAsE" },
+      { title: "Final Fantasy Battle Themes 1-14", url: "https://www.youtube.com/watch?v=-Xwk-yqHIvw" },
+      { title: "Jenova - FF7", url: "https://www.youtube.com/watch?v=m9kGaw216HM" },
+      { title: "Let the Battles Begin! - FF7 Extended", url: "https://www.youtube.com/watch?v=ufboXid14Q0" },
+      { title: "Main Theme of Final Fantasy V", url: "https://www.youtube.com/watch?v=UYIafOKKo-I" },
     ]
   },
   {
@@ -220,6 +106,14 @@ const CATEGORIES = [
     ]
   },
   {
+    name: "Hunter X Hunter",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS07mV21CT4Ce7WFo0kmBskWVVjKdB5nWbXbMXPR3I3gkG4KJ1yU4DTbWOER6eEXMNV8zo",
+    tracks: [
+      { title: "Hunter X Hunter OST - Kingdom Of Predators", url: "https://www.youtube.com/watch?v=T8ex7oKbjhU" },
+      { title: "Hunter x Hunter 2011 OST 3 - G.I Theme", url: "https://www.youtube.com/watch?v=KR2P_g_MXzk" },
+    ]
+  },
+  {
     name: "Ikaruga",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO4sD79jBZSARG0iYbEBzfORnrwVDWxISpbZIevVbDU_zOfN2fAsm3cvkqzHwBMPYF4WQ",
     tracks: [
@@ -227,6 +121,25 @@ const CATEGORIES = [
       { title: "Chapter 2: Trial (Extended)", url: "https://www.youtube.com/watch?v=Kn0JZfDZGi4" },
       { title: "Chapter 3: Faith (Extended)", url: "https://www.youtube.com/watch?v=LtcrmZ67Jb8" },
       { title: "Butsutekkai (Extended)", url: "https://www.youtube.com/watch?v=YtznPVqaGz0" },
+    ]
+  },
+  {
+    name: "Jeux Vidéo",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTli78tNVhAncK0HxrrxUJyf1oc4Ls-yjYsLeZqYwe-Io7wMPNQ84QfTZWIMy47E0QtR9w",
+    tracks: [
+      { title: "Ace Savage - Scheming (Extended Instrumental Slowed)", url: "https://www.youtube.com/watch?v=f6GAPrvKp2I" },
+      { title: "Bloody Roar 3 - Into the Battlefield", url: "https://www.youtube.com/watch?v=rb9r7JW96ZU" },
+      { title: "Bloody Roar 4 - Opening Demo", url: "https://www.youtube.com/watch?v=YwybO2DFm5c" },
+      { title: "Daredevil (Extended) - Ace Combat 7", url: "https://www.youtube.com/watch?v=OYjlsO7-mzA" },
+      { title: "Fortnite - You Don't Know Me Lobby", url: "https://www.youtube.com/watch?v=kWp5S7DrdfQ" },
+      { title: "Gedo High School - Rival Schools", url: "https://www.youtube.com/watch?v=QPcCcorpTrg" },
+      { title: "Horizon Zero Dawn - Aloy's Theme", url: "https://www.youtube.com/watch?v=P2JNQhAsIHA" },
+      { title: "SPARKING (Extended) - Tekken 5", url: "https://www.youtube.com/watch?v=9U2u31Bv_uk" },
+      { title: "Star Fox - Corneria", url: "https://www.youtube.com/watch?v=oBD3FO6ozXc" },
+      { title: "Streets Of New Meridian - Skullgirls", url: "https://www.youtube.com/watch?v=EY6-zgbQI6Y" },
+      { title: "Taiyo High School - Rival Schools", url: "https://www.youtube.com/watch?v=5nW7q0Sv3jU" },
+      { title: "Tekken 3 - Hwoarang Theme", url: "https://www.youtube.com/watch?v=ZTzvLjEkMWE" },
+      { title: "Tekken 5 - Moonlit Wilderness", url: "https://www.youtube.com/watch?v=ClvzNSejzXw" },
     ]
   },
   {
@@ -239,6 +152,41 @@ const CATEGORIES = [
       { title: "Ignite | Worlds 2016", url: "https://www.youtube.com/watch?v=aDJ-bqOkzqY" },
       { title: "Take Over | Worlds 2020", url: "https://www.youtube.com/watch?v=KbNL9ZyB49c" },
       { title: "Legends Never Die | Worlds 2017", url: "https://www.youtube.com/watch?v=4Q46xYqUwZQ" },
+    ]
+  },
+  {
+    name: "One Piece",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ22Ql38iEey5v0tbjuX-Jpe7Wy0mpk5uYKeA",
+    tracks: [
+      { title: "One Piece - Fight Music Compilation (OST)", url: "https://www.youtube.com/watch?v=SYZao9qhyLI" },
+      { title: "One Piece - Castle Karakuri Transform (Extended)", url: "https://www.youtube.com/watch?v=kVMvzIdkM-Q" },
+      { title: "One Piece Opening 12", url: "https://www.youtube.com/watch?v=eS0hCgXMnT4" },
+    ]
+  },
+  {
+    name: "Ost Anime",
+    cover: "https://media.cdnandroid.com/item_images/1131432/imagen-anime-music-ost-nightcore-and-j-pop-collection-0ori.jpg",
+    tracks: [
+      { title: "Sentai daishikkaku - opening 1 ", url: "https://www.youtube.com/watch?v=bG0cGW35-TI" },
+    ]
+  },
+  {
+    name: "Persona",
+    cover: "https://global-img.gamergen.com/persona-25th-anniversary-13-07-2021_0900984927.jpg",
+    tracks: [
+      { title: "It's Going Down Now", url: "https://www.youtube.com/watch?v=2KuWjZD6PBA" },
+      { title: "Sky's The Limit", url: "https://www.youtube.com/watch?v=O0cI9N5rfrg" },
+    ]
+  },
+  {
+    name: "Pokémon",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRByab0LNOS_nTC6s0UyZC7RTYQLYzGhOIh3JxGj7TGgA58AQGb7CCIhQVWLGtADBsxYSY",
+    tracks: [
+      { title: "All Wild Battle Themes (Gen 1-9)", url: "https://www.youtube.com/watch?v=LufEIdG4X2k" },
+      { title: "All Trainer Battle Themes (Gen 1-8)", url: "https://www.youtube.com/watch?v=IB8x5UMLDTs" },
+      { title: "All Evil Team Boss Battle Themes (Gen 1-8)", url: "https://www.youtube.com/watch?v=iza8Tck1Nao" },
+      { title: "Team Rocket & Giovanni - Encounter & Battle Themes", url: "https://www.youtube.com/watch?v=G4vYhwnieY4" },
+      { title: "All Credits/Ending Themes", url: "https://www.youtube.com/watch?v=FQuhvVV4Xyc" },
     ]
   },
   {
@@ -281,6 +229,62 @@ const CATEGORIES = [
     ]
   },
   {
+    name: "Rap FR",
+    cover: "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da847a76a28001f1de84e48e3356",
+    tracks: [
+      { title: "Art de Rue - Fonky Family", url: "https://www.youtube.com/watch?v=JQwxomwU1k4" },
+      { title: "Au Summum - 113", url: "https://www.youtube.com/watch?v=U_h2obefiEk" },
+      { title: "Ghetto Millionnaire - Black Mamba", url: "https://www.youtube.com/watch?v=lTqVCJRju_Q" },
+      { title: "Laisse pas traîner ton fils - Suprême NTM", url: "https://www.youtube.com/watch?v=biYdUZXfz9I" },
+      { title: "Nés sous la même étoile - IAM", url: "https://www.youtube.com/watch?v=rn_UjJN3YQU" },
+      { title: "Pris pour cible - Sniper", url: "https://www.youtube.com/watch?v=LVUPOaDSjQQ" },
+    ]
+  },
+  {
+    name: "Rap US",
+    cover: "https://i.scdn.co/image/ab67616d0000b273b74634bdd01a919a4fc55c47",
+    tracks: [
+      { title: "Act a Fool - Ludacris", url: "https://www.youtube.com/watch?v=qfjbe4RKbwQ" },
+      { title: "Affirmative Action - Nas ft. Suprême NTM", url: "https://www.youtube.com/watch?v=1c8Hl12hLuc" },
+      { title: "Arab Money - Busta Rhymes feat. Ron Brownz", url: "https://www.youtube.com/watch?v=-nvhPOFKB3o" },
+      { title: "Back In The Game - Wu-Tang Clan", url: "https://www.youtube.com/watch?v=58HQeed8Vhg" },
+      { title: "Blackstreet - No Diggity ft. Dr. Dre, Queen Pen", url: "https://www.youtube.com/watch?v=pdEZSC_oN-Q" },
+      { title: "Desiigner - Panda", url: "https://www.youtube.com/watch?v=E5ONTXHS2mM" },
+      { title: "Drop It Like It's Hot Snoop Dogg - ft. Pharrell Williams", url: "https://www.youtube.com/watch?v=GtUVQei3nX4" },
+      { title: "Fazers - King Geedorah", url: "https://www.youtube.com/watch?v=LWN0vQpwcKM" },
+      { title: "Gangsta's Paradise - Coolio", url: "https://www.youtube.com/watch?v=fPO76Jlnz6c" },
+      { title: "I'm Not A Star - Rick Ross", url: "https://www.youtube.com/watch?v=O9f9iEy1XqQ" },
+      { title: "If I Ruled the World - Nas", url: "https://www.youtube.com/watch?v=-8dyp89uWxA" },
+      { title: "Industry Baby - Lil Nas X, Jack Harlow", url: "https://www.youtube.com/watch?v=HCq1OcAEAm0" },
+      { title: "Nasty Girl - The Notorious B.I.G.", url: "https://www.youtube.com/watch?v=ufKxCclo7-c" },
+      { title: "Pass The Courvoisier Part II - Busta Rhymes ft. P. Diddy, Pharrell", url: "https://www.youtube.com/watch?v=o4ZUaxyPoZ8" },
+      { title: "Ridin - Chamillionaire", url: "https://www.youtube.com/watch?v=CtwJvgPJ9xw" },
+      { title: "Simon Says - Pharoahe Monch", url: "https://www.youtube.com/watch?v=52PHX4m07aI" },
+      { title: "Stand Up Ludacris - ft. Shawnna", url: "https://www.youtube.com/watch?v=pZG7IK99OvI" },
+      { title: "Touch It Remix - Busta Rhymes", url: "https://www.youtube.com/watch?v=GDtn_FtU614" },
+      { title: "Write This Down - 2Pac", url: "https://www.youtube.com/watch?v=pdEZSC_oN-Q" },
+    ]
+  },
+  {
+    name: "RnB",
+    cover: "https://routenote.com/blog/wp-content/uploads/2025/01/1.-RNB-X.jpeg",
+    tracks: [
+      { title: "American Boy - Estelle (feat. Kanye West)", url: "https://www.youtube.com/watch?v=Ic5vxw3eijY" },
+      { title: "Blu Cantrell - Breathe ft. Sean Paul", url: "https://www.youtube.com/watch?v=wfTC2o05OEw" },
+      { title: "Beautiful Girls - Sean Kingston", url: "https://www.youtube.com/watch?v=7lBUiFdQLu0" },
+      { title: "Can't Take My Eyes Off Of You - Lauryn Hill", url: "https://www.youtube.com/watch?v=wVzvXW9bo5U" },
+      { title: "Everything Is Everything - Lauryn Hill", url: "https://www.youtube.com/watch?v=i3_dOWYHS7I" },
+      { title: "If There's Any Justice - Lemar", url: "https://www.youtube.com/watch?v=35KXjhvUHuA" },
+      { title: "Me Love - Sean Kingston", url: "https://www.youtube.com/watch?v=t130Gzik-RM" },
+      { title: "Put It On Me - Ja Rule ft. Vita, Lil' Mo", url: "https://www.youtube.com/watch?v=JBGHFDbbios" },
+      { title: "Ready or Not - Fugees", url: "https://www.youtube.com/watch?v=aIXyKmElvv8" },
+      { title: "Run It - Chris Brown - ", url: "https://www.youtube.com/watch?v=w6QGe-pXgdI" },
+      { title: "This Is How We Do It - Montell Jordan", url: "https://www.youtube.com/watch?v=0hiUuL5uTKc" },
+      { title: "Wonderful - Ja Rule ft. R. Kelly, Ashanti", url: "https://www.youtube.com/watch?v=8NgA6bZUpcA" },
+      { title: "You Got Me - The Roots", url: "https://www.youtube.com/watch?v=nR-nB3_-kpg" },
+    ]
+  },
+  {
     name: "Octopath Traveler",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK0Zn-4YKpuvBcing22abxd26VYxRWFKlWNiZo2NoB5JaJBRh4ir7bJc5LgcAZBE66OlY",
     tracks: [
@@ -298,14 +302,42 @@ const CATEGORIES = [
     ]
   },
   {
-    name: "Pokémon",
-    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRByab0LNOS_nTC6s0UyZC7RTYQLYzGhOIh3JxGj7TGgA58AQGb7CCIhQVWLGtADBsxYSY",
+    name: "Pop",
+    cover: "https://play-lh.googleusercontent.com/JpdeHAd9gPX17tKk3FuVmUTVK_nDiegf7Fdgwd8wtr-vWHyUqfCnCXRTBGkK6-fCVKtx",
     tracks: [
-      { title: "All Wild Battle Themes (Gen 1-9)", url: "https://www.youtube.com/watch?v=LufEIdG4X2k" },
-      { title: "All Trainer Battle Themes (Gen 1-8)", url: "https://www.youtube.com/watch?v=IB8x5UMLDTs" },
-      { title: "All Evil Team Boss Battle Themes (Gen 1-8)", url: "https://www.youtube.com/watch?v=iza8Tck1Nao" },
-      { title: "Team Rocket & Giovanni - Encounter & Battle Themes", url: "https://www.youtube.com/watch?v=G4vYhwnieY4" },
-      { title: "All Credits/Ending Themes", url: "https://www.youtube.com/watch?v=FQuhvVV4Xyc" },
+      { title: "Bad Guy - Billie Eilish", url: "https://www.youtube.com/watch?v=CkrkQmLiIbA" },
+      { title: "Beggin - Madcon", url: "https://www.youtube.com/watch?v=WEaUmBOxDuE" },
+      { title: "Beach Boys - I Get Around", url: "https://www.youtube.com/watch?v=wREBD2og5iY" },
+      { title: "Blurred Lines - Robin Thicke ft. T.I., Pharrell", url: "https://www.youtube.com/watch?v=yyDUC1LUXSU" },
+      { title: "The Boys are Back in Town - Thin Lizzy", url: "https://www.youtube.com/watch?v=hQo1HIcSVtg" },
+      { title: "Call Me Maybe - Carly Rae Jepsen", url: "https://www.youtube.com/watch?v=fWNaR-rxAic" },
+      { title: "Cheerleader - OMI", url: "https://www.youtube.com/watch?v=jGflUbPQfW8" },
+      { title: "Doo Wop - Lauryn Hill", url: "https://www.youtube.com/watch?v=G5zirRc34Xc" },
+      { title: "Don't Worry Be Happy - Bobby McFerrin", url: "https://www.youtube.com/watch?v=d-diB65scQU" },
+      { title: "Don't Stop Me Now - Queen", url: "https://www.youtube.com/watch?v=hBp4dgE7Bho" },
+      { title: "Freed From Desire - GALA", url: "https://www.youtube.com/watch?v=kHV_zePxnmY" },
+      { title: "Give Me Everything Pitbull - ft. Ne-Yo, Afrojack, Nayer", url: "https://www.youtube.com/watch?v=EPo5wWmKEaI" },
+      { title: "Iron - Woodkid", url: "https://www.youtube.com/watch?v=vSkb0kDacjs" },
+      { title: "Somebody's Watching Me - Rockwell", url: "https://www.youtube.com/watch?v=7YvAYIJSSZY" },
+      { title: "Starlight - The Supermen Lovers", url: "https://www.youtube.com/watch?v=ByK5qt0pRg8" },
+      { title: "Timber - Pitbull ft. Ke$ha", url: "https://www.youtube.com/watch?v=hHUbLv4ThOo" },
+      { title: "The Luck You Got - The High Strung", url: "https://www.youtube.com/watch?v=b3KuMFXm2xk" },
+      { title: "Price Tag - Jessie J ft. B.o.B", url: "https://www.youtube.com/watch?v=qMxX-QOV9tI" },
+      { title: "Run The Show - Kat DeLuna ft. Busta Rhymes", url: "https://www.youtube.com/watch?v=fhsHOlliExk" },
+    ]
+  },
+  {
+    name: "Shingeki No Kyojin",
+    cover: "https://m.media-amazon.com/images/S/pv-target-images/abce4f3146841f9aa66e9963531ab38e64108ecaa79b93e5a2781c89c59ebaac.jpg",
+    tracks: [
+      { title: "Opening 1 - Guren no Yumiya", url: "https://www.youtube.com/watch?v=CbvQKBaDUWI&list=RDCbvQKBaDUWI&start_radio=1" },
+      { title: "SNK - Return to Revelio", url: "https://www.youtube.com/watch?v=sZyirQuRzbM" },
+      { title: "Opening 7 - The Rumbling", url: "https://www.youtube.com/watch?v=9l9Wa-5ph6o" },
+      { title: "Opening 7 (Extended)", url: "https://www.youtube.com/watch?v=tCUUcrtfyuU" },
+      { title: "Season 4 - Epic Soundtrack Mix", url: "https://www.youtube.com/watch?v=ri6YWr03izo" },
+      { title: "Shinzou wo Sasageyo | Season 2", url: "https://www.youtube.com/watch?v=iA7c314_SWM" },
+      { title: "Shinzou wo Sasageyo | Season 3", url: "https://www.youtube.com/watch?v=wwfwjEroBXc" },
+      { title: "The Rumbling - SiM", url: "https://www.youtube.com/watch?v=OBqw818mQ1E" },
     ]
   },
   {
@@ -356,7 +388,8 @@ const CATEGORIES = [
   },
 ];
 
-CATEGORIES.forEach(cat => cat.tracks.sort((a, b) => a.title.localeCompare(b.title, 'fr')));
+CATEGORIES.sort((a, b) => a.name.localeCompare(b.name, 'fr', { sensitivity: 'base' }));
+CATEGORIES.forEach(cat => cat.tracks.sort((a, b) => a.title.localeCompare(b.title, 'fr', { sensitivity: 'base' })));
 
 // ════════════════════════════════════════════════════════
 //  Lecteur — ne pas modifier en dessous
