@@ -9,7 +9,8 @@ Beta
 v1.00.0 = musique trié
 v1.01.0 = amélioration responsive + ajout guilty gear
 v1.01.1 = update blazblue
-v1.01.2 = Bouton "ordre de lecture"
+v1.01.2 = Bouton "ordre de lecture" commencé
+v1.02.0 = bouton "ordre de lecture" finalisé + ajout soulcalibur
 
 ** Next Step **
 Check si les liens des musiques

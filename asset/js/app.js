@@ -27,7 +27,7 @@ const CATEGORIES = [
   },
   {
     name: "Classic / Opéra",
-    cover: "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da847a76a28001f1de84e48e3356",
+    cover: "https://static.actu.fr/uploads/2023/08/fbc68a58bce46efc68a58bce4b3d68v-960x640.jpg",
     tracks: [
       { title: "Aram Khachaturian - Sabre Dance", url: "https://www.youtube.com/watch?v=gqg3l3r_DRI" },
       { title: "Boléro - Maurice Ravel", url: "https://www.youtube.com/watch?v=r30D3SW4OVw" },
@@ -380,9 +380,11 @@ const CATEGORIES = [
     name: "Soul Calibur",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp8G2EJP0LgIzwdJ4mRdAu61KUo_xeiKiJ62wfKg3JO4eHJNaJ3JGWPZNoqXBqEbU1AVc",
     tracks: [
-      { title: "Soul Blade - The Edge of Soul (Intro Theme)", url: "https://www.youtube.com/watch?v=vbTsj_hEPbY" },
+      { title: "Soul Blade/Edge - Intro Extended", url: "https://www.youtube.com/watch?v=vbTsj_hEPbY" },
+      { title: "Soul Blade/Edge - Intro", url: "https://www.youtube.com/watch?v=5Jscuco8zEk" },
       { title: "Soul Blade/Edge - Recollect Continent (Extended)", url: "https://www.youtube.com/watch?v=eK0RPaM5Eog" },
       { title: "Soulcalibur III - Ephemeral Dream (Extended)", url: "https://www.youtube.com/watch?v=4AF5QPpKe6s" },
+      { title: "Soulcalibur III - Intro", url: "https://www.youtube.com/watch?v=suftVb4TaoI" },
       { title: "Soulcalibur II Opening (HQ Remastered)", url: "https://www.youtube.com/watch?v=C_Evc5IPJZk" },
     ]
   },
@@ -425,6 +427,7 @@ const trackList      = document.getElementById('track-list');
 const videoContainer = document.getElementById('video-container');
 const ytIframe       = document.getElementById('yt-iframe');
 const artBox         = document.getElementById('art-box');
+const artIcon        = document.getElementById('art-icon');
 const scControls     = document.getElementById('sc-controls');
 const volDownBtn     = document.getElementById('vol-down');
 const volUpBtn       = document.getElementById('vol-up');
@@ -499,10 +502,10 @@ function selectCategory(index) {
     artBox.style.backgroundImage    = `url('${cat.cover}')`;
     artBox.style.backgroundSize     = '100% 100%';
     artBox.style.backgroundPosition = 'center';
-    artBox.textContent = '';
+    artIcon.style.display = 'none';
   } else {
     artBox.style.backgroundImage = '';
-    artBox.textContent = '♪';
+    artIcon.style.display = '';
   }
 
   trackList.innerHTML = '';
@@ -549,6 +552,11 @@ function playTrack(catIndex, trackIndex) {
   const track = CATEGORIES[catIndex].tracks[trackIndex];
   if (!track.url) return;
 
+  if (shuffleMode && !skipHistory && currentTrackIndex >= 0 && currentCategory === catIndex) {
+    shuffleHistory.push(currentTrackIndex);
+  }
+  skipHistory = false;
+
   currentCategory   = catIndex;
   currentTrackIndex = trackIndex;
 
@@ -590,7 +598,9 @@ function playTrack(catIndex, trackIndex) {
 }
 
 // ── Contrôles de lecture ───────────────────────────────
-let shuffleMode = false;
+let shuffleMode    = false;
+let shuffleHistory = [];
+let skipHistory    = false;
 
 function nextTrack() {
   if (currentCategory === null) return;
@@ -612,6 +622,11 @@ function nextTrack() {
 
 function prevTrack() {
   if (currentCategory === null || currentTrackIndex < 0) return;
+  if (shuffleMode && shuffleHistory.length > 0) {
+    skipHistory = true;
+    playTrack(currentCategory, shuffleHistory.pop());
+    return;
+  }
   const tracks = CATEGORIES[currentCategory].tracks;
   let i = currentTrackIndex - 1;
   while (i >= 0 && !tracks[i].url) i--;
@@ -624,9 +639,10 @@ function prevTrack() {
 
 function toggleShuffle() {
   shuffleMode = !shuffleMode;
+  shuffleHistory = [];
   const btn = document.getElementById('btn-shuffle');
   btn.classList.toggle('on', shuffleMode);
-  btn.textContent = shuffleMode ? '🔀' : '⇒';
+  btn.textContent = shuffleMode ? '✦' : '✧';
 }
 
 audio.addEventListener('ended', nextTrack);
