@@ -589,16 +589,51 @@ function playTrack(catIndex, trackIndex) {
   }
 }
 
-// ── Piste suivante (auto-avance pour l'audio) ──────────
+// ── Contrôles de lecture ───────────────────────────────
+let shuffleMode = false;
+
 function nextTrack() {
   if (currentCategory === null) return;
   const tracks = CATEGORIES[currentCategory].tracks;
-  let i = currentTrackIndex + 1;
-  while (i < tracks.length && !tracks[i].url) i++;
-  if (i < tracks.length) playTrack(currentCategory, i);
+  if (shuffleMode) {
+    const pool = tracks.map((t, i) => i).filter(i => tracks[i].url && i !== currentTrackIndex);
+    if (!pool.length) return;
+    playTrack(currentCategory, pool[Math.floor(Math.random() * pool.length)]);
+  } else {
+    let i = currentTrackIndex + 1;
+    while (i < tracks.length && !tracks[i].url) i++;
+    if (i >= tracks.length) {
+      i = 0;
+      while (i < tracks.length && !tracks[i].url) i++;
+    }
+    if (i < tracks.length) playTrack(currentCategory, i);
+  }
+}
+
+function prevTrack() {
+  if (currentCategory === null || currentTrackIndex < 0) return;
+  const tracks = CATEGORIES[currentCategory].tracks;
+  let i = currentTrackIndex - 1;
+  while (i >= 0 && !tracks[i].url) i--;
+  if (i < 0) {
+    i = tracks.length - 1;
+    while (i >= 0 && !tracks[i].url) i--;
+  }
+  if (i >= 0) playTrack(currentCategory, i);
+}
+
+function toggleShuffle() {
+  shuffleMode = !shuffleMode;
+  const btn = document.getElementById('btn-shuffle');
+  btn.classList.toggle('on', shuffleMode);
+  btn.textContent = shuffleMode ? '🔀' : '⇒';
 }
 
 audio.addEventListener('ended', nextTrack);
+
+document.getElementById('btn-next').addEventListener('click', nextTrack);
+document.getElementById('btn-prev').addEventListener('click', prevTrack);
+document.getElementById('btn-shuffle').addEventListener('click', toggleShuffle);
 
 // ── Init ───────────────────────────────────────────────
 buildCategories();
