@@ -11,7 +11,7 @@ v1.01.0 = amélioration responsive + ajout guilty gear
 v1.01.1 = update blazblue
 v1.01.2 = Bouton "ordre de lecture" commencé
 v1.02.0 = bouton "ordre de lecture" finalisé + ajout soulcalibur
+v1.03.0 = ajout changement de musique auto lorsqu'il est terminé
 
 ** Next Step **
 Check si les liens des musiques
-ajout sens de lecture

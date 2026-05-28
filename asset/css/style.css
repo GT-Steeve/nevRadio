@@ -148,12 +148,49 @@ body {
 
 #video-container.visible { display: flex; }
 
-#yt-iframe {
+#yt-player-wrap {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+#yt-player-wrap.visible { display: flex; }
+#yt-player-wrap iframe,
+#yt-player { flex: 1; width: 100%; min-height: 0; border: none; }
+
+#sc-iframe {
+  display: none;
   flex: 1;
   width: 100%;
   min-height: 0;
   border: none;
 }
+#sc-iframe.visible { display: block; }
+
+#yt-controls-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  z-index: 1;
+}
+#yt-controls-bar.visible { display: flex; }
+
+#yt-time {
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 1px;
+  font-weight: 300;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-family: inherit;
+}
+
 
 #sc-controls {
   display: none;

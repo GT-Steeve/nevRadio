@@ -425,7 +425,8 @@ let currentTrackIndex = -1;
 const categorySelect = document.getElementById('category-select');
 const trackList      = document.getElementById('track-list');
 const videoContainer = document.getElementById('video-container');
-const ytIframe       = document.getElementById('yt-iframe');
+const ytPlayerWrap   = document.getElementById('yt-player-wrap');
+const scIframe       = document.getElementById('sc-iframe');
 const artBox         = document.getElementById('art-box');
 const artIcon        = document.getElementById('art-icon');
 const scControls     = document.getElementById('sc-controls');
@@ -447,7 +448,7 @@ function loadSCApi(cb) {
 }
 
 function initSCWidget() {
-  scWidget = SC.Widget(ytIframe);
+  scWidget = SC.Widget(scIframe);
   scWidget.bind(SC.Widget.Events.READY, () => scWidget.setVolume(scVolume));
 }
 
@@ -568,33 +569,105 @@ function playTrack(catIndex, trackIndex) {
   const ytId = extractYTId(track.url);
 
   if (ytId) {
-    // YouTube → iframe YouTube
     audio.pause();
     audio.src = '';
     scWidget = null;
     scControls.classList.remove('visible');
-    ytIframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1`;
+    scIframe.classList.remove('visible');
+    scIframe.src = '';
+    stopYTTime();
+    ytPlayerWrap.classList.add('visible');
     videoContainer.classList.add('visible');
+    ensureYTPlayer(ytId);
   } else if (isSoundCloud(track.url)) {
-    // SoundCloud → widget SoundCloud + bouton volume
     audio.pause();
     audio.src = '';
     scVolume = 80;
     scMuted  = false;
     volMuteBtn.textContent = '🔊';
-    ytIframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(track.url)}&auto_play=true&hide_related=true&show_comments=false&visual=true`;
+    stopYTTime();
+    ytPlayerWrap.classList.remove('visible');
+    if (ytPlayer) ytPlayer.pauseVideo();
+    scIframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(track.url)}&auto_play=true&hide_related=true&show_comments=false&visual=true`;
+    scIframe.classList.add('visible');
     videoContainer.classList.add('visible');
     scControls.classList.add('visible');
-    ytIframe.onload = () => loadSCApi(initSCWidget);
+    scIframe.onload = () => loadSCApi(initSCWidget);
   } else {
-    // Lien direct (.mp3, etc.) → balise audio
     scWidget = null;
     scControls.classList.remove('visible');
-    ytIframe.src = '';
+    scIframe.src = '';
+    scIframe.classList.remove('visible');
+    stopYTTime();
+    ytPlayerWrap.classList.remove('visible');
+    if (ytPlayer) ytPlayer.pauseVideo();
     videoContainer.classList.remove('visible');
     audio.src = track.url;
     audio.play();
   }
+}
+
+// ── YouTube IFrame API ─────────────────────────────────
+let ytPlayer      = null;
+let ytApiReady    = false;
+let pendingYtId   = null;
+let ytTimeTimer   = null;
+
+function ensureYTPlayer(videoId) {
+  if (ytApiReady) {
+    if (ytPlayer) { ytPlayer.loadVideoById(videoId); }
+    else          { createYTPlayer(videoId); }
+  } else {
+    pendingYtId = videoId;
+    if (!document.querySelector('script[src*="youtube.com/iframe_api"]')) {
+      const s = document.createElement('script');
+      s.src = 'https://www.youtube.com/iframe_api';
+      document.head.appendChild(s);
+    }
+  }
+}
+
+window.onYouTubeIframeAPIReady = function() {
+  ytApiReady = true;
+  if (pendingYtId) { createYTPlayer(pendingYtId); pendingYtId = null; }
+};
+
+function createYTPlayer(videoId) {
+  ytPlayer = new YT.Player('yt-player', {
+    videoId,
+    playerVars: { autoplay: 1, rel: 0 },
+    events: { onStateChange: onYTStateChange }
+  });
+}
+
+function onYTStateChange(e) {
+  if (e.data === YT.PlayerState.PLAYING) {
+    document.getElementById('yt-controls-bar').classList.add('visible');
+    clearInterval(ytTimeTimer);
+    ytTimeTimer = setInterval(() => {
+      if (!ytPlayer || typeof ytPlayer.getCurrentTime !== 'function') return;
+      const cur = ytPlayer.getCurrentTime();
+      const dur = ytPlayer.getDuration();
+      document.getElementById('yt-time').textContent = fmtTime(cur) + ' / ' + fmtTime(dur);
+    }, 1000);
+  } else if (e.data === YT.PlayerState.ENDED) {
+    nextTrack();
+  }
+}
+
+function stopYTTime() {
+  clearInterval(ytTimeTimer);
+  ytTimeTimer = null;
+  const bar = document.getElementById('yt-controls-bar');
+  if (bar) bar.classList.remove('visible');
+  const t = document.getElementById('yt-time');
+  if (t) t.textContent = '';
+}
+
+function fmtTime(secs) {
+  const m = Math.floor(secs / 60);
+  const s = Math.floor(secs % 60);
+  return m + ':' + String(s).padStart(2, '0');
 }
 
 // ── Contrôles de lecture ───────────────────────────────

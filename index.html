@@ -23,6 +23,9 @@
           <button id="btn-shuffle" title="Lecture aléatoire">✧</button>
           <button id="btn-next"    title="Piste suivante">▶</button>
         </div>
+        <div id="yt-controls-bar">
+          <span id="yt-time"></span>
+        </div>
       </div>
 
       <!-- Bande colorée : sélecteur de catégorie intégré -->
@@ -50,11 +53,10 @@
           <button id="vol-up"   title="Monter le volume">+</button>
         </div>
 
-        <iframe
-          id="yt-iframe"
-          allowfullscreen
-          allow="autoplay; encrypted-media"
-        ></iframe>
+        <div id="yt-player-wrap">
+          <div id="yt-player"></div>
+        </div>
+        <iframe id="sc-iframe" allowfullscreen allow="autoplay; encrypted-media"></iframe>
       </div>
 
     </div>
