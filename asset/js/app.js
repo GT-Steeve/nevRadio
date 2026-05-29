@@ -651,7 +651,8 @@ function onYTStateChange(e) {
       document.getElementById('yt-time').textContent = fmtTime(cur) + ' / ' + fmtTime(dur);
     }, 1000);
   } else if (e.data === YT.PlayerState.ENDED) {
-    nextTrack();
+    if (loopMode) { ytPlayer.seekTo(0); ytPlayer.playVideo(); }
+    else nextTrack();
   }
 }
 
@@ -671,6 +672,7 @@ function fmtTime(secs) {
 }
 
 // ── Contrôles de lecture ───────────────────────────────
+let loopMode       = false;
 let shuffleMode    = false;
 let shuffleHistory = [];
 let skipHistory    = false;
@@ -718,10 +720,17 @@ function toggleShuffle() {
   btn.textContent = shuffleMode ? '✦' : '✧';
 }
 
-audio.addEventListener('ended', nextTrack);
+audio.addEventListener('ended', () => {
+  if (loopMode) { audio.currentTime = 0; audio.play(); }
+  else nextTrack();
+});
 
 document.getElementById('btn-next').addEventListener('click', nextTrack);
 document.getElementById('btn-prev').addEventListener('click', prevTrack);
+document.getElementById('btn-loop').addEventListener('click', () => {
+  loopMode = !loopMode;
+  document.getElementById('btn-loop').classList.toggle('on', loopMode);
+});
 document.getElementById('btn-shuffle').addEventListener('click', toggleShuffle);
 
 // ── Init ───────────────────────────────────────────────

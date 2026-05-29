@@ -67,7 +67,15 @@ body {
   z-index: 1;
 }
 
-#btn-prev, #btn-shuffle, #btn-next {
+#mode-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-top: 1.3em;
+}
+
+#btn-prev, #btn-loop, #btn-shuffle, #btn-next {
   background: none;
   border: none;
   font-size: 1.4em;
@@ -78,11 +86,11 @@ body {
   line-height: 1;
 }
 
-#btn-prev, #btn-next, #btn-shuffle { color: #fff; }
-#btn-shuffle.on { opacity: 1; }
+#btn-prev, #btn-loop, #btn-next, #btn-shuffle { color: #fff; }
+#btn-shuffle.on, #btn-loop.on { opacity: 1; color: var(--accent2); }
 
-#btn-prev:hover, #btn-shuffle:hover, #btn-next:hover { opacity: 1; }
-#btn-prev:active, #btn-shuffle:active, #btn-next:active { transform: scale(0.9); }
+#btn-prev:hover, #btn-loop:hover, #btn-shuffle:hover, #btn-next:hover { opacity: 1; }
+#btn-prev:active, #btn-loop:active, #btn-shuffle:active, #btn-next:active { transform: scale(0.9); }
 
 /* ── Bande colorée : contient le select ── */
 #art-label {
