@@ -145,7 +145,6 @@ body {
   overflow: hidden;
 }
 
-
 /* ── Lecteur vidéo YouTube / SoundCloud ── */
 #video-container {
   flex: 1;
@@ -293,6 +292,9 @@ body {
 /* ═══════════════════════════════════════
    Responsive — tablette ≤ 900px
 ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   Responsive — tablette ≤ 900px
+═══════════════════════════════════════ */
 @media (max-width: 900px) {
   :root { --left-w: 220px; }
 }
@@ -304,6 +306,7 @@ body {
   body { overflow: auto; }
 
   #app {
+    position: relative;
     flex-direction: column;
     height: auto;
     min-height: 100svh;
@@ -311,23 +314,27 @@ body {
 
   #left-panel {
     width: 100%;
+    height: 100svh;
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
 
   #art-box {
     aspect-ratio: unset;
-    height: 200px;
+    height: 260px;
     font-size: 2.5em;
   }
 
-  #track-list {
-    max-height: 38vh;
-  }
+  #right-panel { flex: 1; min-height: 25vh; }
 
-  #right-panel {
-    flex: 1;
-    min-height: 25vh;
+  /* ── Switch cover / vidéo YouTube en mobile ── */
+  body.yt-mobile #art-box        { visibility: hidden; }
+  body.yt-mobile #right-panel    { flex: 0; min-height: 0; height: 0; overflow: visible; }
+  body.yt-mobile #video-container.visible {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 260px; /* ← modifie cette valeur pour changer la taille */
+    z-index: 10;
   }
 
   .track-item  { padding: 10px 14px; gap: 10px; }

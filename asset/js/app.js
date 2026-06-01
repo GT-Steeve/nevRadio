@@ -434,6 +434,19 @@ const volDownBtn     = document.getElementById('vol-down');
 const volUpBtn       = document.getElementById('vol-up');
 const volMuteBtn     = document.getElementById('vol-mute');
 
+// ── Switch cover / vidéo en responsive ────────────────
+function isMobile() { return window.innerWidth <= 600; }
+
+function mobileShowVideo() {
+  if (!isMobile()) return;
+  document.body.classList.add('yt-mobile');
+}
+
+function mobileHideVideo() {
+  if (!isMobile()) return;
+  document.body.classList.remove('yt-mobile');
+}
+
 // ── Volume SoundCloud ──────────────────────────────────
 let scVolume = 80;
 let scMuted  = false;
@@ -578,6 +591,7 @@ function playTrack(catIndex, trackIndex) {
     stopYTTime();
     ytPlayerWrap.classList.add('visible');
     videoContainer.classList.add('visible');
+    mobileShowVideo();
     ensureYTPlayer(ytId);
   } else if (isSoundCloud(track.url)) {
     audio.pause();
@@ -592,6 +606,7 @@ function playTrack(catIndex, trackIndex) {
     scIframe.classList.add('visible');
     videoContainer.classList.add('visible');
     scControls.classList.add('visible');
+    mobileHideVideo();
     scIframe.onload = () => loadSCApi(initSCWidget);
   } else {
     scWidget = null;
@@ -602,6 +617,7 @@ function playTrack(catIndex, trackIndex) {
     ytPlayerWrap.classList.remove('visible');
     if (ytPlayer) ytPlayer.pauseVideo();
     videoContainer.classList.remove('visible');
+    mobileHideVideo();
     audio.src = track.url;
     audio.play();
   }
