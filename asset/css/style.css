@@ -337,6 +337,31 @@ body {
     z-index: 10;
   }
 
+  #playback-controls {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    transform: none;
+    background: rgba(10, 10, 28, 0.97);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(120, 200, 255, 0.28);
+    border-radius: 14px 14px 0 0;
+    box-shadow: 0 -6px 28px rgba(0, 0, 0, 0.55);
+    padding: 8px 0 10px;
+    z-index: 50;
+    visibility: visible;
+  }
+
+  body.yt-mobile #playback-controls { visibility: visible; }
+
+  #mode-buttons {
+    flex-direction: row;
+    margin-top: 0;
+    gap: 0;
+  }
+
   .track-item  { padding: 10px 14px; gap: 10px; }
   .track-title { font-size: 0.82em; }
   .track-num   { font-size: 0.75em; }

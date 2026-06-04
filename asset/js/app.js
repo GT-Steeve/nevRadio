@@ -15,6 +15,7 @@ const CATEGORIES = [
       { title: "Calamity Trigger - Arcade", url: "https://www.youtube.com/watch?v=VFylEGx0AlM" },
       { title: "Calamity Trigger", url: "https://www.youtube.com/watch?v=VFylEGx0AlM" },
       { title: "Calamity Trigger - Extended", url: "https://www.youtube.com/watch?v=emufl2KhNqA" },
+      { title: "CentralFiction - In the Shadows", url: "https://www.youtube.com/watch?v=SuQjb4nQe40" },
       { title: "Chrono Phantasma - Arcade", url: "https://www.youtube.com/watch?v=KFY6e1b4hSk" },
       { title: "Chrono Phantasma - Opening", url: "https://www.youtube.com/watch?v=ssQv6mfuLM4" },
       { title: "Chrono Phantasma - Opening Extended", url: "https://www.youtube.com/watch?v=6_XXTCHeTp4" },
@@ -351,12 +352,13 @@ const CATEGORIES = [
     cover: "https://m.media-amazon.com/images/S/pv-target-images/abce4f3146841f9aa66e9963531ab38e64108ecaa79b93e5a2781c89c59ebaac.jpg",
     tracks: [
       { title: "Opening 1 - Guren no Yumiya", url: "https://www.youtube.com/watch?v=CbvQKBaDUWI&list=RDCbvQKBaDUWI&start_radio=1" },
-      { title: "SNK - Return to Revelio", url: "https://www.youtube.com/watch?v=sZyirQuRzbM" },
+      { title: "Opening 4 - Boku no Sensou", url: "https://www.youtube.com/watch?v=LV9CFlkEy1I" },
       { title: "Opening 7 - The Rumbling", url: "https://www.youtube.com/watch?v=9l9Wa-5ph6o" },
       { title: "Opening 7 (Extended)", url: "https://www.youtube.com/watch?v=tCUUcrtfyuU" },
       { title: "Season 4 - Epic Soundtrack Mix", url: "https://www.youtube.com/watch?v=ri6YWr03izo" },
       { title: "Shinzou wo Sasageyo | Season 2", url: "https://www.youtube.com/watch?v=iA7c314_SWM" },
       { title: "Shinzou wo Sasageyo | Season 3", url: "https://www.youtube.com/watch?v=wwfwjEroBXc" },
+      { title: "SNK - Return to Revelio", url: "https://www.youtube.com/watch?v=sZyirQuRzbM" },
       { title: "The Rumbling - SiM", url: "https://www.youtube.com/watch?v=OBqw818mQ1E" },
     ]
   },
