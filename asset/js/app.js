@@ -192,14 +192,6 @@ const CATEGORIES = [
     ]
   },
   {
-    name: "Persona",
-    cover: "https://global-img.gamergen.com/persona-25th-anniversary-13-07-2021_0900984927.jpg",
-    tracks: [
-      { title: "It's Going Down Now", url: "https://www.youtube.com/watch?v=2KuWjZD6PBA" },
-      { title: "Sky's The Limit", url: "https://www.youtube.com/watch?v=O0cI9N5rfrg" },
-    ]
-  },
-  {
     name: "Pokémon",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRByab0LNOS_nTC6s0UyZC7RTYQLYzGhOIh3JxGj7TGgA58AQGb7CCIhQVWLGtADBsxYSY",
     tracks: [
@@ -320,6 +312,18 @@ const CATEGORIES = [
       { title: "Intro - Octopath Traveler II", url: "https://www.youtube.com/watch?v=PEh1as9hVy8" },
       { title: "Battle 1 - Octopath Traveler II", url: "https://www.youtube.com/watch?v=xFR2WsdGE9Y" },
       { title: "Decisive Battle I - Octopath Traveler II", url: "https://youtu.be/HZ65XrQWDi0" },
+    ]
+  },
+  {
+    name: "Persona",
+    cover: "https://global-img.gamergen.com/persona-25th-anniversary-13-07-2021_0900984927.jpg",
+    tracks: [
+      { title: "It's Going Down Now", url: "https://www.youtube.com/watch?v=2KuWjZD6PBA" },
+      { title: "Persona 4 Arena - Best Friends", url: "https://www.youtube.com/watch?v=sS-TBzUPL4c" },
+      { title: "Persona 4 Arena Ultimax - Reach Out To The Truth", url: "https://www.youtube.com/watch?v=VDQNPfCwS_8" },
+      { title: "Persona 4 Arena Ultimax - Princess Amagi", url: "https://www.youtube.com/watch?v=rFqCde-x_O8" },
+      { title: "Persona 4 Arena Ultimax - The Battle For Everyone's Souls", url: "https://www.youtube.com/watch?v=Xw3VccMa8BY" },
+      { title: "Sky's The Limit", url: "https://www.youtube.com/watch?v=O0cI9N5rfrg" },
     ]
   },
   {
