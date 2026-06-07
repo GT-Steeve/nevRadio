@@ -67,7 +67,15 @@ body {
   z-index: 1;
 }
 
-#btn-prev, #btn-shuffle, #btn-next {
+#mode-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-top: 1.3em;
+}
+
+#btn-prev, #btn-loop, #btn-shuffle, #btn-next {
   background: none;
   border: none;
   font-size: 1.4em;
@@ -78,11 +86,11 @@ body {
   line-height: 1;
 }
 
-#btn-prev, #btn-next, #btn-shuffle { color: #fff; }
-#btn-shuffle.on { opacity: 1; }
+#btn-prev, #btn-loop, #btn-next, #btn-shuffle { color: #fff; }
+#btn-shuffle.on, #btn-loop.on { opacity: 1; color: var(--accent2); }
 
-#btn-prev:hover, #btn-shuffle:hover, #btn-next:hover { opacity: 1; }
-#btn-prev:active, #btn-shuffle:active, #btn-next:active { transform: scale(0.9); }
+#btn-prev:hover, #btn-loop:hover, #btn-shuffle:hover, #btn-next:hover { opacity: 1; }
+#btn-prev:active, #btn-loop:active, #btn-shuffle:active, #btn-next:active { transform: scale(0.9); }
 
 /* ── Bande colorée : contient le select ── */
 #art-label {
@@ -136,7 +144,6 @@ body {
   flex-direction: column;
   overflow: hidden;
 }
-
 
 /* ── Lecteur vidéo YouTube / SoundCloud ── */
 #video-container {
@@ -285,6 +292,9 @@ body {
 /* ═══════════════════════════════════════
    Responsive — tablette ≤ 900px
 ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   Responsive — tablette ≤ 900px
+═══════════════════════════════════════ */
 @media (max-width: 900px) {
   :root { --left-w: 220px; }
 }
@@ -296,6 +306,7 @@ body {
   body { overflow: auto; }
 
   #app {
+    position: relative;
     flex-direction: column;
     height: auto;
     min-height: 100svh;
@@ -303,23 +314,51 @@ body {
 
   #left-panel {
     width: 100%;
+    height: 100svh;
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
 
   #art-box {
     aspect-ratio: unset;
-    height: 200px;
+    height: 260px;
     font-size: 2.5em;
   }
 
-  #track-list {
-    max-height: 38vh;
+  #right-panel { flex: 1; min-height: 25vh; }
+
+  /* ── Switch cover / vidéo YouTube en mobile ── */
+  body.yt-mobile #art-box        { visibility: hidden; }
+  body.yt-mobile #right-panel    { flex: 0; min-height: 0; height: 0; overflow: visible; }
+  body.yt-mobile #video-container.visible {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 260px; /* ← modifie cette valeur pour changer la taille */
+    z-index: 10;
   }
 
-  #right-panel {
-    flex: 1;
-    min-height: 25vh;
+  #playback-controls {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    transform: none;
+    background: linear-gradient(145deg, #14143a, #1e1e52);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(120, 200, 255, 0.28);
+    box-shadow: 0 -6px 28px rgba(0, 0, 0, 0.55);
+    padding: 8px 0 10px;
+    z-index: 50;
+    visibility: visible;
+  }
+
+  body.yt-mobile #playback-controls { visibility: visible; }
+
+  #mode-buttons {
+    flex-direction: row;
+    margin-top: 0;
+    gap: 0;
   }
 
   .track-item  { padding: 10px 14px; gap: 10px; }

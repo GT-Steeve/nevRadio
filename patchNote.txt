@@ -12,6 +12,10 @@ v1.01.1 = update blazblue
 v1.01.2 = Bouton "ordre de lecture" commencé
 v1.02.0 = bouton "ordre de lecture" finalisé + ajout soulcalibur
 v1.03.0 = ajout changement de musique auto lorsqu'il est terminé
+v1.04.0 = ajout bouton boucle
+v1.05.0 = amélioration responsive replacement vidéo youtube
+v1.05.1 = correctif responsive controle de lecture disparaissait
+v1.05.2 = amélioration responsive design controle de leture + ajout P4A
 v1.06.0 = ajout naruto + megaman
 
 ** Next Step **

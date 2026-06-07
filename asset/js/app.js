@@ -15,6 +15,7 @@ const CATEGORIES = [
       { title: "Calamity Trigger - Arcade", url: "https://www.youtube.com/watch?v=VFylEGx0AlM" },
       { title: "Calamity Trigger", url: "https://www.youtube.com/watch?v=VFylEGx0AlM" },
       { title: "Calamity Trigger - Extended", url: "https://www.youtube.com/watch?v=emufl2KhNqA" },
+      { title: "CentralFiction - In the Shadows", url: "https://www.youtube.com/watch?v=SuQjb4nQe40" },
       { title: "Chrono Phantasma - Arcade", url: "https://www.youtube.com/watch?v=KFY6e1b4hSk" },
       { title: "Chrono Phantasma - Opening", url: "https://www.youtube.com/watch?v=ssQv6mfuLM4" },
       { title: "Chrono Phantasma - Opening Extended", url: "https://www.youtube.com/watch?v=6_XXTCHeTp4" },
@@ -188,14 +189,6 @@ const CATEGORIES = [
     cover: "https://media.cdnandroid.com/item_images/1131432/imagen-anime-music-ost-nightcore-and-j-pop-collection-0ori.jpg",
     tracks: [
       { title: "Sentai daishikkaku - opening 1 ", url: "https://www.youtube.com/watch?v=bG0cGW35-TI" },
-    ]
-  },
-  {
-    name: "Persona",
-    cover: "https://global-img.gamergen.com/persona-25th-anniversary-13-07-2021_0900984927.jpg",
-    tracks: [
-      { title: "It's Going Down Now", url: "https://www.youtube.com/watch?v=2KuWjZD6PBA" },
-      { title: "Sky's The Limit", url: "https://www.youtube.com/watch?v=O0cI9N5rfrg" },
     ]
   },
   {
@@ -374,6 +367,18 @@ const CATEGORIES = [
     ]
   },
   {
+    name: "Persona",
+    cover: "https://global-img.gamergen.com/persona-25th-anniversary-13-07-2021_0900984927.jpg",
+    tracks: [
+      { title: "It's Going Down Now", url: "https://www.youtube.com/watch?v=2KuWjZD6PBA" },
+      { title: "Persona 4 Arena - Best Friends", url: "https://www.youtube.com/watch?v=sS-TBzUPL4c" },
+      { title: "Persona 4 Arena Ultimax - Reach Out To The Truth", url: "https://www.youtube.com/watch?v=VDQNPfCwS_8" },
+      { title: "Persona 4 Arena Ultimax - Princess Amagi", url: "https://www.youtube.com/watch?v=rFqCde-x_O8" },
+      { title: "Persona 4 Arena Ultimax - The Battle For Everyone's Souls", url: "https://www.youtube.com/watch?v=Xw3VccMa8BY" },
+      { title: "Sky's The Limit", url: "https://www.youtube.com/watch?v=O0cI9N5rfrg" },
+    ]
+  },
+  {
     name: "Pop",
     cover: "https://play-lh.googleusercontent.com/JpdeHAd9gPX17tKk3FuVmUTVK_nDiegf7Fdgwd8wtr-vWHyUqfCnCXRTBGkK6-fCVKtx",
     tracks: [
@@ -403,12 +408,13 @@ const CATEGORIES = [
     cover: "https://m.media-amazon.com/images/S/pv-target-images/abce4f3146841f9aa66e9963531ab38e64108ecaa79b93e5a2781c89c59ebaac.jpg",
     tracks: [
       { title: "Opening 1 - Guren no Yumiya", url: "https://www.youtube.com/watch?v=CbvQKBaDUWI&list=RDCbvQKBaDUWI&start_radio=1" },
-      { title: "SNK - Return to Revelio", url: "https://www.youtube.com/watch?v=sZyirQuRzbM" },
+      { title: "Opening 4 - Boku no Sensou", url: "https://www.youtube.com/watch?v=LV9CFlkEy1I" },
       { title: "Opening 7 - The Rumbling", url: "https://www.youtube.com/watch?v=9l9Wa-5ph6o" },
       { title: "Opening 7 (Extended)", url: "https://www.youtube.com/watch?v=tCUUcrtfyuU" },
       { title: "Season 4 - Epic Soundtrack Mix", url: "https://www.youtube.com/watch?v=ri6YWr03izo" },
       { title: "Shinzou wo Sasageyo | Season 2", url: "https://www.youtube.com/watch?v=iA7c314_SWM" },
       { title: "Shinzou wo Sasageyo | Season 3", url: "https://www.youtube.com/watch?v=wwfwjEroBXc" },
+      { title: "SNK - Return to Revelio", url: "https://www.youtube.com/watch?v=sZyirQuRzbM" },
       { title: "The Rumbling - SiM", url: "https://www.youtube.com/watch?v=OBqw818mQ1E" },
     ]
   },
@@ -485,6 +491,19 @@ const scControls     = document.getElementById('sc-controls');
 const volDownBtn     = document.getElementById('vol-down');
 const volUpBtn       = document.getElementById('vol-up');
 const volMuteBtn     = document.getElementById('vol-mute');
+
+// ── Switch cover / vidéo en responsive ────────────────
+function isMobile() { return window.innerWidth <= 600; }
+
+function mobileShowVideo() {
+  if (!isMobile()) return;
+  document.body.classList.add('yt-mobile');
+}
+
+function mobileHideVideo() {
+  if (!isMobile()) return;
+  document.body.classList.remove('yt-mobile');
+}
 
 // ── Volume SoundCloud ──────────────────────────────────
 let scVolume = 80;
@@ -630,6 +649,7 @@ function playTrack(catIndex, trackIndex) {
     stopYTTime();
     ytPlayerWrap.classList.add('visible');
     videoContainer.classList.add('visible');
+    mobileShowVideo();
     ensureYTPlayer(ytId);
   } else if (isSoundCloud(track.url)) {
     audio.pause();
@@ -644,6 +664,7 @@ function playTrack(catIndex, trackIndex) {
     scIframe.classList.add('visible');
     videoContainer.classList.add('visible');
     scControls.classList.add('visible');
+    mobileHideVideo();
     scIframe.onload = () => loadSCApi(initSCWidget);
   } else {
     scWidget = null;
@@ -654,6 +675,7 @@ function playTrack(catIndex, trackIndex) {
     ytPlayerWrap.classList.remove('visible');
     if (ytPlayer) ytPlayer.pauseVideo();
     videoContainer.classList.remove('visible');
+    mobileHideVideo();
     audio.src = track.url;
     audio.play();
   }
@@ -703,7 +725,8 @@ function onYTStateChange(e) {
       document.getElementById('yt-time').textContent = fmtTime(cur) + ' / ' + fmtTime(dur);
     }, 1000);
   } else if (e.data === YT.PlayerState.ENDED) {
-    nextTrack();
+    if (loopMode) { ytPlayer.seekTo(0); ytPlayer.playVideo(); }
+    else nextTrack();
   }
 }
 
@@ -723,6 +746,7 @@ function fmtTime(secs) {
 }
 
 // ── Contrôles de lecture ───────────────────────────────
+let loopMode       = false;
 let shuffleMode    = false;
 let shuffleHistory = [];
 let skipHistory    = false;
@@ -770,10 +794,17 @@ function toggleShuffle() {
   btn.textContent = shuffleMode ? '✦' : '✧';
 }
 
-audio.addEventListener('ended', nextTrack);
+audio.addEventListener('ended', () => {
+  if (loopMode) { audio.currentTime = 0; audio.play(); }
+  else nextTrack();
+});
 
 document.getElementById('btn-next').addEventListener('click', nextTrack);
 document.getElementById('btn-prev').addEventListener('click', prevTrack);
+document.getElementById('btn-loop').addEventListener('click', () => {
+  loopMode = !loopMode;
+  document.getElementById('btn-loop').classList.toggle('on', loopMode);
+});
 document.getElementById('btn-shuffle').addEventListener('click', toggleShuffle);
 
 // ── Init ───────────────────────────────────────────────
