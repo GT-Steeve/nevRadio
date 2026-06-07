@@ -7,6 +7,8 @@
 //    { name: "Nom", tracks: [ ... ] }
 // ════════════════════════════════════════════════════════
 
+const VERSION = 'v1.06.1';
+
 const CATEGORIES = [
   {
     name: "Blazblue",
@@ -568,6 +570,7 @@ function buildCategories() {
 function selectCategory(index) {
   currentCategory = index;
   const cat = CATEGORIES[index];
+  document.getElementById('version-tag').classList.add('hidden');
 
   // Mise à jour de la pochette
   if (cat.cover) {
@@ -808,4 +811,5 @@ document.getElementById('btn-loop').addEventListener('click', () => {
 document.getElementById('btn-shuffle').addEventListener('click', toggleShuffle);
 
 // ── Init ───────────────────────────────────────────────
+document.getElementById('version-tag').textContent = VERSION;
 buildCategories();

@@ -288,6 +288,17 @@ body {
   border-left-color: transparent;
 }
 
+#version-tag {
+  text-align: center;
+  padding: 10px;
+  font-size: 0.65em;
+  color: rgba(255, 255, 255, 0.18);
+  letter-spacing: 2px;
+  flex-shrink: 0;
+}
+
+#version-tag.hidden { display: none; }
+
 
 /* ═══════════════════════════════════════
    Responsive — tablette ≤ 900px
@@ -303,13 +314,12 @@ body {
    Responsive — mobile ≤ 600px
 ═══════════════════════════════════════ */
 @media (max-width: 600px) {
-  body { overflow: auto; }
+  body { overflow: hidden; }
 
   #app {
     position: relative;
     flex-direction: column;
-    height: auto;
-    min-height: 100svh;
+    height: 100svh;
   }
 
   #left-panel {
@@ -319,13 +329,21 @@ body {
     border-bottom: 1px solid var(--border);
   }
 
+  #version-tag {
+    position: fixed;
+    bottom: 80px;
+    left: 0;
+    right: 0;
+    z-index: 49;
+  }
+
   #art-box {
     aspect-ratio: unset;
     height: 260px;
     font-size: 2.5em;
   }
 
-  #right-panel { flex: 1; min-height: 25vh; }
+  #right-panel { flex: 1; min-height: 0; }
 
   /* ── Switch cover / vidéo YouTube en mobile ── */
   body.yt-mobile #art-box        { visibility: hidden; }
