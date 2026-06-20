@@ -7,9 +7,26 @@
 //    { name: "Nom", tracks: [ ... ] }
 // ════════════════════════════════════════════════════════
 
-const VERSION = 'v1.06.1';
+const VERSION = 'v1.07.0';
 
 const CATEGORIES = [
+  {
+    name: "Bleach",
+    cover: "https://i.ebayimg.com/images/g/tsQAAMXQDjhQ7wQk/s-l640.jpg",
+    tracks: [
+      { title: "Number One (Vocal Version)", url: "https://www.youtube.com/watch?v=9xya0oO5WgA" },
+      { title: "heat of the battle", url: "https://www.youtube.com/watch?v=eqUE1Uq7JvU" },
+      { title: "Hollowed", url: "https://www.youtube.com/watch?v=mwkhUlvJuFI" },
+      { title: "La Distancia Para Un Duelo", url: "https://www.youtube.com/watch?v=NlZVSsHtIhQ&list=PLudS4P1Mgvt0yZjbDzA4W6RoTkbD_i7NY&index=2" },
+      { title: "OPENING 2", url: "https://www.youtube.com/watch?v=h1MoLQ9Wcv0" },
+      { title: "OPENING 6", url: "https://www.youtube.com/watch?v=WEN4qOcVKeM" },
+      { title: "OPENING 7", url: "https://www.youtube.com/watch?v=Rv5V-5CErRE" },
+      { title: "OPENING 9", url: "https://www.youtube.com/watch?v=almG54sVBuw" },
+      { title: "OPENING 12", url: "https://www.youtube.com/watch?v=i0we6am_25g" },
+      { title: "Soundscape to Ardor", url: "https://www.youtube.com/watch?v=CXHmEPCmQQ8" },
+      { title: "torn apart", url: "https://www.youtube.com/watch?v=6s-wjQ7hx_0" },
+    ]
+  },
   {
     name: "Blazblue",
     cover: "https://n-gamz.com/wp-content/uploads/2016/11/blazblue-central-fiction-test-review-screen-logo.jpg",
@@ -39,6 +56,20 @@ const CATEGORIES = [
       { title: "Merry-Go-Round of Life - Joe Hisaishi", url: "https://www.youtube.com/watch?v=f7SS57LFPco" },
       { title: "Lacrimosa - Wolfgang Amadeus Mozart", url: "https://www.youtube.com/watch?v=k1-TrAvp_xs" },
       { title: "Nocturne op.9 No.2 - Chopin", url: "https://www.youtube.com/watch?v=9E6b3swbnWg" },
+    ]
+  },
+  {
+    name: "Chrono Trigger",
+    cover: "https://media.senscritique.com/media/000018412762/300/chrono_trigger.png",
+    tracks: [
+      { title: "Ayla's Theme", url: "https://www.youtube.com/watch?v=H29woqCfMxs" },
+      { title: "Battle 1 (Extended)", url: "https://www.youtube.com/watch?v=TZDc1eAL4J8" },
+      { title: "Battle with Magus", url: "https://www.youtube.com/watch?v=lVuO0fhrKXs" },
+      { title: "Boss Battle 1 (Extended)", url: "https://www.youtube.com/watch?v=JnJbbJ8AR8c" },
+      { title: "Boss Battle 2 (Extended)", url: "https://www.youtube.com/watch?v=vjOMNyElR2I" },
+      { title: "Intro PS1 - Anime Intro", url: "https://www.youtube.com/watch?v=M8I45TYVHmc" },
+      { title: "Intro SNES - Original Intro", url: "https://www.youtube.com/watch?v=vqTZfknDVes" },
+      { title: "Schala's Theme", url: "https://www.youtube.com/watch?v=ESOeXENXLuU" },
     ]
   },
   {
@@ -155,6 +186,8 @@ const CATEGORIES = [
       { title: "Bloody Roar 4 - Opening Demo", url: "https://www.youtube.com/watch?v=YwybO2DFm5c" },
       { title: "Daredevil (Extended) - Ace Combat 7", url: "https://www.youtube.com/watch?v=OYjlsO7-mzA" },
       { title: "Fortnite - You Don't Know Me Lobby", url: "https://www.youtube.com/watch?v=kWp5S7DrdfQ" },
+      { title: "Hokuto no Ken - Ai wo Torimodose [PS2]", url: "https://www.youtube.com/watch?v=3rUb5dLO7-I" },
+      { title: "Hokuto no Ken - Fatal KO [PS2]", url: "https://www.youtube.com/watch?v=8NBOeH6r974" },
       { title: "Horizon Zero Dawn - Aloy's Theme", url: "https://www.youtube.com/watch?v=P2JNQhAsIHA" },
       { title: "Rival Schools - Gedo High School", url: "https://www.youtube.com/watch?v=QPcCcorpTrg" },
       { title: "Rival Schools - Taiyo High School", url: "https://www.youtube.com/watch?v=5nW7q0Sv3jU" },
@@ -170,11 +203,14 @@ const CATEGORIES = [
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzAS1HjfoovDI_E4VUnuFXYpnci15k08to2xtNWVfm7YYKo881uNLDPXJLaDQ0ByPCCXI",
     tracks: [
       { title: "All Songs Worlds 2014-2022", url: "https://www.youtube.com/watch?v=hheZSOCEpwA" },
+      { title: "Coming Alive ", url: "https://www.youtube.com/watch?v=Zj7m_gRNppk" },
+      { title: "Ignite | Worlds 2016", url: "https://www.youtube.com/watch?v=aDJ-bqOkzqY" },
+      { title: "Legends Never Die | Worlds 2017", url: "https://www.youtube.com/watch?v=4Q46xYqUwZQ" },
       { title: "Soul Fighter 2023 - Tournament of Souls", url: "https://www.youtube.com/watch?v=iGrcMLdx8es" },
       { title: "Soul Fighter 2023 - Coming Alive", url: "https://www.youtube.com/watch?v=MDqj3bhxIw0" },
-      { title: "Ignite | Worlds 2016", url: "https://www.youtube.com/watch?v=aDJ-bqOkzqY" },
       { title: "Take Over | Worlds 2020", url: "https://www.youtube.com/watch?v=KbNL9ZyB49c" },
-      { title: "Legends Never Die | Worlds 2017", url: "https://www.youtube.com/watch?v=4Q46xYqUwZQ" },
+      { title: "Tournament of Souls", url: "https://www.youtube.com/watch?v=rvaV-3qCWX4" },
+      { title: "Tournament of Souls - instrusmental", url: "https://www.youtube.com/watch?v=yi0P_erlgS0" },
     ]
   },
   {
@@ -649,7 +685,7 @@ function playTrack(catIndex, trackIndex) {
     scControls.classList.remove('visible');
     scIframe.classList.remove('visible');
     scIframe.src = '';
-    stopYTTime();
+
     ytPlayerWrap.classList.add('visible');
     videoContainer.classList.add('visible');
     mobileShowVideo();
@@ -660,7 +696,7 @@ function playTrack(catIndex, trackIndex) {
     scVolume = 80;
     scMuted  = false;
     volMuteBtn.textContent = '🔊';
-    stopYTTime();
+
     ytPlayerWrap.classList.remove('visible');
     if (ytPlayer) ytPlayer.pauseVideo();
     scIframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(track.url)}&auto_play=true&hide_related=true&show_comments=false&visual=true`;
@@ -674,7 +710,7 @@ function playTrack(catIndex, trackIndex) {
     scControls.classList.remove('visible');
     scIframe.src = '';
     scIframe.classList.remove('visible');
-    stopYTTime();
+
     ytPlayerWrap.classList.remove('visible');
     if (ytPlayer) ytPlayer.pauseVideo();
     videoContainer.classList.remove('visible');
@@ -688,7 +724,6 @@ function playTrack(catIndex, trackIndex) {
 let ytPlayer      = null;
 let ytApiReady    = false;
 let pendingYtId   = null;
-let ytTimeTimer   = null;
 
 function ensureYTPlayer(videoId) {
   if (ytApiReady) {
@@ -718,34 +753,10 @@ function createYTPlayer(videoId) {
 }
 
 function onYTStateChange(e) {
-  if (e.data === YT.PlayerState.PLAYING) {
-    document.getElementById('yt-controls-bar').classList.add('visible');
-    clearInterval(ytTimeTimer);
-    ytTimeTimer = setInterval(() => {
-      if (!ytPlayer || typeof ytPlayer.getCurrentTime !== 'function') return;
-      const cur = ytPlayer.getCurrentTime();
-      const dur = ytPlayer.getDuration();
-      document.getElementById('yt-time').textContent = fmtTime(cur) + ' / ' + fmtTime(dur);
-    }, 1000);
-  } else if (e.data === YT.PlayerState.ENDED) {
+  if (e.data === YT.PlayerState.ENDED) {
     if (loopMode) { ytPlayer.seekTo(0); ytPlayer.playVideo(); }
     else nextTrack();
   }
-}
-
-function stopYTTime() {
-  clearInterval(ytTimeTimer);
-  ytTimeTimer = null;
-  const bar = document.getElementById('yt-controls-bar');
-  if (bar) bar.classList.remove('visible');
-  const t = document.getElementById('yt-time');
-  if (t) t.textContent = '';
-}
-
-function fmtTime(secs) {
-  const m = Math.floor(secs / 60);
-  const s = Math.floor(secs % 60);
-  return m + ':' + String(s).padStart(2, '0');
 }
 
 // ── Contrôles de lecture ───────────────────────────────
@@ -789,12 +800,12 @@ function prevTrack() {
   if (i >= 0) playTrack(currentCategory, i);
 }
 
+const btnShuffle = document.getElementById('btn-shuffle');
 function toggleShuffle() {
   shuffleMode = !shuffleMode;
   shuffleHistory = [];
-  const btn = document.getElementById('btn-shuffle');
-  btn.classList.toggle('on', shuffleMode);
-  btn.textContent = shuffleMode ? '✦' : '✧';
+  btnShuffle.classList.toggle('on', shuffleMode);
+  btnShuffle.textContent = shuffleMode ? '✦' : '✧';
 }
 
 audio.addEventListener('ended', () => {
@@ -804,11 +815,12 @@ audio.addEventListener('ended', () => {
 
 document.getElementById('btn-next').addEventListener('click', nextTrack);
 document.getElementById('btn-prev').addEventListener('click', prevTrack);
-document.getElementById('btn-loop').addEventListener('click', () => {
+const btnLoop = document.getElementById('btn-loop');
+btnLoop.addEventListener('click', () => {
   loopMode = !loopMode;
-  document.getElementById('btn-loop').classList.toggle('on', loopMode);
+  btnLoop.classList.toggle('on', loopMode);
 });
-document.getElementById('btn-shuffle').addEventListener('click', toggleShuffle);
+btnShuffle.addEventListener('click', toggleShuffle);
 
 // ── Init ───────────────────────────────────────────────
 document.getElementById('version-tag').textContent = VERSION;

@@ -174,29 +174,7 @@ body {
 }
 #sc-iframe.visible { display: block; }
 
-#yt-controls-bar {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-size: 12px;
-  z-index: 1;
-}
-#yt-controls-bar.visible { display: flex; }
-
-#yt-time {
-  color: rgba(255, 255, 255, 0.75);
-  letter-spacing: 1px;
-  font-weight: 300;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 2px 8px;
-  border-radius: 3px;
-  font-family: inherit;
-}
+#yt-controls-bar { display: none !important; }
 
 
 #sc-controls {
@@ -303,9 +281,6 @@ body {
 /* ═══════════════════════════════════════
    Responsive — tablette ≤ 900px
 ═══════════════════════════════════════ */
-/* ═══════════════════════════════════════
-   Responsive — tablette ≤ 900px
-═══════════════════════════════════════ */
 @media (max-width: 900px) {
   :root { --left-w: 220px; }
 }
@@ -314,8 +289,6 @@ body {
    Responsive — mobile ≤ 600px
 ═══════════════════════════════════════ */
 @media (max-width: 600px) {
-  body { overflow: hidden; }
-
   #app {
     position: relative;
     flex-direction: column;

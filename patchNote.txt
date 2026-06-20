@@ -18,6 +18,7 @@ v1.05.1 = correctif responsive controle de lecture disparaissait
 v1.05.2 = amélioration responsive design controle de leture + ajout P4A
 v1.06.0 = ajout naruto + megaman
 v1.06.1 = afficher la version du projet
+v1.07.0 = timer supprimée + ajout chrono trigger + coming alive lol + bleach
 
 ** Next Step **
 Check si les liens des musiques
