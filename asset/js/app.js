@@ -23,6 +23,7 @@ const CATEGORIES = [
       { title: "OPENING 7", url: "https://www.youtube.com/watch?v=Rv5V-5CErRE" },
       { title: "OPENING 9", url: "https://www.youtube.com/watch?v=almG54sVBuw" },
       { title: "OPENING 12", url: "https://www.youtube.com/watch?v=i0we6am_25g" },
+      { title: "On the Precipice of Defeat", url: "https://www.youtube.com/watch?v=pLwFmryO-Yg" },
       { title: "Soundscape to Ardor", url: "https://www.youtube.com/watch?v=CXHmEPCmQQ8" },
       { title: "torn apart", url: "https://www.youtube.com/watch?v=6s-wjQ7hx_0" },
     ]
@@ -111,6 +112,7 @@ const CATEGORIES = [
     tracks: [
       { title: "Adele - Skyfall", url: "https://www.youtube.com/watch?v=LJzp_mDxaT0" },
       { title: "Clubbed to Death - Matrix", url: "https://www.youtube.com/watch?v=20TX1VlWtzw" },
+      { title: "DUNE 3 - War Song (Extended Audio)", url: "https://www.youtube.com/watch?v=uJ5KFS-DQD0" },
       { title: "Rob Dougan - Chateau Extended", url: "https://www.youtube.com/watch?v=KCNOe7s1lD0" },
       { title: "Star Wars - Duel of the Fates", url: "https://www.youtube.com/watch?v=g_BB0tj4tf8" },
     ]
@@ -244,12 +246,18 @@ const CATEGORIES = [
     name: "Naruto",
     cover: "https://image.tmdb.org/t/p/w500/71mASgFgSiPl9QUexVH8BubU0lD.jpg",
     tracks: [
+      { title: "Early Summer Rain", url: "https://www.youtube.com/watch?v=5kQybVJa9AM" },
       { title: "Ending 28", url: "https://www.youtube.com/watch?v=p3zsRbVo1T8" },
+      { title: "Hurricane Suite", url: "https://www.youtube.com/watch?v=CAolpgtxxGw" },
+      { title: "Man of the World", url: "https://www.youtube.com/watch?v=Zk65UCMPiug" },
       { title: "Opening 2", url: "https://www.youtube.com/watch?v=WLP_G1c1hWA" },
       { title: "Opening 3", url: "https://www.youtube.com/watch?v=frdz6P8uwv4" },
       { title: "Opening 6 - FLOW", url: "https://www.youtube.com/watch?v=97dkzVU4p-M" },
       { title: "Opening 7 - A World That Was Transparent", url: "https://www.youtube.com/watch?v=06EjEq_7RJY" },
       { title: "Opening 14", url: "https://www.youtube.com/watch?v=rd2CqCpY5JY" },
+      { title: "Sadness and Sorrow", url: "https://www.youtube.com/watch?v=VGS9nrEwXmw" },
+      { title: "The Guts To Never Give Up", url: "https://www.youtube.com/watch?v=HKl1mx7UIbE" },
+      { title: "Tragic", url: "https://www.youtube.com/watch?v=hgZHsjjR1OM" },
     ]
   },
   {
