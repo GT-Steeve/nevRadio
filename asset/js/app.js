@@ -465,6 +465,15 @@ const CATEGORIES = [
     ]
   },
   {
+    name: "Shinobi",
+    cover: "https://archive.org/services/img/md_music_shinobi_iii_return_of_the_ninja_master/full/pct:500/0/default.jpg",
+    tracks: [
+      { title: "Shinobi III (Megadrive)", url: "https://www.youtube.com/watch?v=lfOlO3nNMEk" },
+      { title: "Shinobi (PS2) - Cool Corporation", url: "https://www.youtube.com/watch?v=QPNfL0JfLvI" },
+      { title: "GG Shinobi II (Game Gear)", url: "https://www.youtube.com/watch?v=HnAcUMrl8q8" },
+    ]
+  },
+  {
     name: "Sonic",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG6dwfB4zNxgxDWiysn1gBjrpVYd47HTpioXuF2h7lnLzCgz40l0qOYnbZBAHbJxAMLn8",
     tracks: [

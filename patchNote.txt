@@ -20,6 +20,7 @@ v1.06.0 = ajout naruto + megaman
 v1.06.1 = afficher la version du projet
 v1.07.0 = timer supprimée + ajout chrono trigger + coming alive lol + bleach
 v1.08.0 = ajout Naruto + Bleach + Dune
+v1.09.0 = ajout shinobi 
 
 ** Next Step **
 Check si les liens des musiques
