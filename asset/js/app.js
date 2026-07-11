@@ -11,6 +11,20 @@ const VERSION = 'v1.07.0';
 
 const CATEGORIES = [
   {
+    name: "Bayonetta",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQBmHs-AVjtpFMaOqHzfVwfTfOtxMJJvdXFcgYoRRBF6ogwsJK8JgG6veD&s=10",
+    tracks: [
+      { title: "Bayonetta - Battle For The Umbra Throne", url: "https://www.youtube.com/watch?v=8Ea5IUqXss8" },
+      { title: "Bayonetta - Blood & Darkness", url: "https://www.youtube.com/watch?v=Gn8-by_PM1o" },
+      { title: "Bayonetta - Fly Me To The Moon", url: "https://www.youtube.com/watch?v=oQ2QgcRrWlc" },
+      { title: "Bayonetta - Mysterious Destiny", url: "https://www.youtube.com/watch?v=Zysr4weluSM" },
+      { title: "Bayonetta - Red & Black", url: "https://www.youtube.com/watch?v=JVSYSfHo-MI" },
+      { title: "Bayonetta - The Heavies", url: "https://www.youtube.com/watch?v=FcVu_4D0yko" },
+      { title: "Bayonetta 2 - Moon River", url: "https://www.youtube.com/watch?v=sXhhdNL05sY" },
+      { title: "Bayonetta 2 - Tomorrow Is Mine", url: "https://www.youtube.com/watch?v=q_hCSCgX8A8" },
+    ]
+  },
+  {
     name: "Bleach",
     cover: "https://i.ebayimg.com/images/g/tsQAAMXQDjhQ7wQk/s-l640.jpg",
     tracks: [
@@ -187,6 +201,7 @@ const CATEGORIES = [
       { title: "Bloody Roar 3 - Into the Battlefield", url: "https://www.youtube.com/watch?v=rb9r7JW96ZU" },
       { title: "Bloody Roar 4 - Opening Demo", url: "https://www.youtube.com/watch?v=YwybO2DFm5c" },
       { title: "Daredevil (Extended) - Ace Combat 7", url: "https://www.youtube.com/watch?v=OYjlsO7-mzA" },
+      { title: "Final Fight 3 (SNES) - For Metro City", url: "https://www.youtube.com/watch?v=CcnyY3YLMA0" },
       { title: "Fortnite - You Don't Know Me Lobby", url: "https://www.youtube.com/watch?v=kWp5S7DrdfQ" },
       { title: "Hokuto no Ken - Ai wo Torimodose [PS2]", url: "https://www.youtube.com/watch?v=3rUb5dLO7-I" },
       { title: "Hokuto no Ken - Fatal KO [PS2]", url: "https://www.youtube.com/watch?v=8NBOeH6r974" },
@@ -196,6 +211,7 @@ const CATEGORIES = [
       { title: "SPARKING (Extended) - Tekken 5", url: "https://www.youtube.com/watch?v=9U2u31Bv_uk" },
       { title: "Star Fox - Corneria", url: "https://www.youtube.com/watch?v=oBD3FO6ozXc" },
       { title: "Streets Of New Meridian - Skullgirls", url: "https://www.youtube.com/watch?v=EY6-zgbQI6Y" },
+      { title: "Soul Sacrifice : A certain magicians life (PSP)", url: "https://www.youtube.com/watch?v=VwekQGV3Gyg" },
       { title: "Tekken 3 - Hwoarang Theme", url: "https://www.youtube.com/watch?v=ZTzvLjEkMWE" },
       { title: "Tekken 5 - Moonlit Wilderness", url: "https://www.youtube.com/watch?v=ClvzNSejzXw" },
     ]
