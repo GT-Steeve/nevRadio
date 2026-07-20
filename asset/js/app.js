@@ -200,12 +200,14 @@ const CATEGORIES = [
       { title: "Ace Savage - Scheming (Extended Instrumental Slowed)", url: "https://www.youtube.com/watch?v=f6GAPrvKp2I" },
       { title: "Bloody Roar 3 - Into the Battlefield", url: "https://www.youtube.com/watch?v=rb9r7JW96ZU" },
       { title: "Bloody Roar 4 - Opening Demo", url: "https://www.youtube.com/watch?v=YwybO2DFm5c" },
+      { title: "Bunny Hill - Menu ", url: "https://www.youtube.com/watch?v=VwlVu0DofxQ" },
       { title: "Daredevil (Extended) - Ace Combat 7", url: "https://www.youtube.com/watch?v=OYjlsO7-mzA" },
       { title: "Final Fight 3 (SNES) - For Metro City", url: "https://www.youtube.com/watch?v=CcnyY3YLMA0" },
       { title: "Fortnite - You Don't Know Me Lobby", url: "https://www.youtube.com/watch?v=kWp5S7DrdfQ" },
       { title: "Hokuto no Ken - Ai wo Torimodose [PS2]", url: "https://www.youtube.com/watch?v=3rUb5dLO7-I" },
       { title: "Hokuto no Ken - Fatal KO [PS2]", url: "https://www.youtube.com/watch?v=8NBOeH6r974" },
       { title: "Horizon Zero Dawn - Aloy's Theme", url: "https://www.youtube.com/watch?v=P2JNQhAsIHA" },
+      { title: "Project Feline - Intro", url: "https://www.youtube.com/watch?v=keQzb5iKlYg" },
       { title: "Rival Schools - Gedo High School", url: "https://www.youtube.com/watch?v=QPcCcorpTrg" },
       { title: "Rival Schools - Taiyo High School", url: "https://www.youtube.com/watch?v=5nW7q0Sv3jU" },
       { title: "SPARKING (Extended) - Tekken 5", url: "https://www.youtube.com/watch?v=9U2u31Bv_uk" },
@@ -214,6 +216,7 @@ const CATEGORIES = [
       { title: "Soul Sacrifice : A certain magicians life (PSP)", url: "https://www.youtube.com/watch?v=VwekQGV3Gyg" },
       { title: "Tekken 3 - Hwoarang Theme", url: "https://www.youtube.com/watch?v=ZTzvLjEkMWE" },
       { title: "Tekken 5 - Moonlit Wilderness", url: "https://www.youtube.com/watch?v=ClvzNSejzXw" },
+      { title: "Who Trained the Hero? Official Trailer - Battle", url: "https://www.youtube.com/watch?v=mBRXRtB08uk" },
     ]
   },
   {
