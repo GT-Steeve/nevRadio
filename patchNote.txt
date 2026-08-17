@@ -23,6 +23,7 @@ v1.08.0 = ajout Naruto + Bleach + Dune
 v1.09.0 = ajout shinobi 
 v1.10.0 = ajout Bayonetta + quelque musique jeu vidéo
 v1.10.1 = ajout 3 ost jeu inde
+v1.10.2 = ajout Lucio theme heroes of the storm (trouvaille de 9ans auparavant)
 
 ** Next Step **
 Check si les liens des musiques

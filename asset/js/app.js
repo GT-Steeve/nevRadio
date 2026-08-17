@@ -204,6 +204,7 @@ const CATEGORIES = [
       { title: "Daredevil (Extended) - Ace Combat 7", url: "https://www.youtube.com/watch?v=OYjlsO7-mzA" },
       { title: "Final Fight 3 (SNES) - For Metro City", url: "https://www.youtube.com/watch?v=CcnyY3YLMA0" },
       { title: "Fortnite - You Don't Know Me Lobby", url: "https://www.youtube.com/watch?v=kWp5S7DrdfQ" },
+      { title: "Heroes of the Storm - Lucio Theme", url: "https://www.youtube.com/watch?v=uWMhs5WEILo" },
       { title: "Hokuto no Ken - Ai wo Torimodose [PS2]", url: "https://www.youtube.com/watch?v=3rUb5dLO7-I" },
       { title: "Hokuto no Ken - Fatal KO [PS2]", url: "https://www.youtube.com/watch?v=8NBOeH6r974" },
       { title: "Horizon Zero Dawn - Aloy's Theme", url: "https://www.youtube.com/watch?v=P2JNQhAsIHA" },
