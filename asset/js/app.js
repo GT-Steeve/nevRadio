@@ -7,7 +7,7 @@
 //    { name: "Nom", tracks: [ ... ] }
 // ════════════════════════════════════════════════════════
 
-const VERSION = 'v1.11.0';
+const VERSION = 'v1.12.1';
 
 const CATEGORIES = [
   {
@@ -943,7 +943,7 @@ function toggleShuffle() {
   shuffleMode = !shuffleMode;
   shuffleHistory = [];
   btnShuffle.classList.toggle('on', shuffleMode);
-  btnShuffle.textContent = shuffleMode ? '✦' : '✧';
+  btnShuffle.setAttribute('aria-pressed', shuffleMode);
 }
 
 audio.addEventListener('ended', () => {
@@ -957,6 +957,7 @@ const btnLoop = document.getElementById('btn-loop');
 btnLoop.addEventListener('click', () => {
   loopMode = !loopMode;
   btnLoop.classList.toggle('on', loopMode);
+  btnLoop.setAttribute('aria-pressed', loopMode);
 });
 btnShuffle.addEventListener('click', toggleShuffle);
 

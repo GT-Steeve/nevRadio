@@ -1,6 +1,6 @@
 # NevRadio
 
-**Version actuelle : v1.11.0** — [voir le site](https://gt-steeve.github.io/nevRadio/) · historique dans `patchNote.txt`
+**Version actuelle : v1.12.1** — [voir le site](https://gt-steeve.github.io/nevRadio/) · historique dans `patchNote.txt`
 
 Lecteur de musique interactif inspiré de l'esthétique Ren'Py (visual novel). Interface sombre à deux panneaux, support YouTube, SoundCloud et fichiers audio directs.
 
@@ -90,4 +90,4 @@ Affichés en haut du lecteur uniquement lors de la lecture d'une piste SoundClou
 |---------|--------|
 | > 900px | Deux colonnes — panneau gauche 290px |
 | ≤ 900px | Deux colonnes — panneau gauche 220px |
-| ≤ 600px | Empilement vertical — pochette compacte, liste scrollable, barre de lecture fixe en bas (la liste s'arrête au-dessus), sélecteur de catégorie en plein écran |
+| ≤ 600px | Empilement vertical — pochette compacte, liste scrollable, barre de lecture fixe en bas façon walkman — touches en relief, bouton aléatoire « ? » étoilé (la liste s'arrête au-dessus), sélecteur de catégorie en plein écran |

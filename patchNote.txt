@@ -25,6 +25,8 @@ v1.10.0 = ajout Bayonetta + quelque musique jeu vidéo
 v1.10.1 = ajout 3 ost jeu inde
 v1.10.2 = ajout Lucio theme heroes of the storm (trouvaille de 9ans auparavant)
 v1.11.0 = rework sélection catégorie + fix musique cachée derrière la barre footer
+v1.12.0 = rework apparence bouton
+v1.12.1 = texte de la version en gris plus clair
 
 ** Next Step **
 Check si les liens des musiques
