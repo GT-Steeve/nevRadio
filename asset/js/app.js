@@ -7,7 +7,7 @@
 //    { name: "Nom", tracks: [ ... ] }
 // ════════════════════════════════════════════════════════
 
-const VERSION = 'v1.07.0';
+const VERSION = 'v1.11.0';
 
 const CATEGORIES = [
   {
@@ -227,6 +227,7 @@ const CATEGORIES = [
       { title: "All Songs Worlds 2014-2022", url: "https://www.youtube.com/watch?v=hheZSOCEpwA" },
       { title: "Coming Alive ", url: "https://www.youtube.com/watch?v=Zj7m_gRNppk" },
       { title: "Ignite | Worlds 2016", url: "https://www.youtube.com/watch?v=aDJ-bqOkzqY" },
+      { title: "Kindred | OST", url: "https://www.youtube.com/watch?v=VNiW-W3CN1k" },
       { title: "Legends Never Die | Worlds 2017", url: "https://www.youtube.com/watch?v=4Q46xYqUwZQ" },
       { title: "Soul Fighter 2023 - Tournament of Souls", url: "https://www.youtube.com/watch?v=iGrcMLdx8es" },
       { title: "Soul Fighter 2023 - Coming Alive", url: "https://www.youtube.com/watch?v=MDqj3bhxIw0" },
@@ -555,7 +556,6 @@ let currentCategory   = null;
 let currentTrackIndex = -1;
 
 // ── Références DOM ──────────────────────────────────────
-const categorySelect = document.getElementById('category-select');
 const trackList      = document.getElementById('track-list');
 const videoContainer = document.getElementById('video-container');
 const ytPlayerWrap   = document.getElementById('yt-player-wrap');
@@ -623,37 +623,138 @@ volMuteBtn.addEventListener('click', () => {
   applyVolume();
 });
 
-// ── Peuple le <select> ─────────────────────────────────
+// ── Sélecteur de catégorie (cartes) ───────────────────
+const categoryBtn      = document.getElementById('category-btn');
+const categoryBtnLabel = document.getElementById('category-btn-label');
+const categoryModal    = document.getElementById('category-modal');
+const categoryGrid     = document.getElementById('category-grid');
+const categorySearch   = document.getElementById('category-search');
+const categoryEmpty    = document.getElementById('category-empty');
+
 function buildCategories() {
   CATEGORIES.forEach((cat, i) => {
-    const opt = document.createElement('option');
-    opt.value = i;
-    opt.textContent = cat.name;
-    categorySelect.appendChild(opt);
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'category-card';
+    card.dataset.index = i;
+    card.dataset.name  = cat.name.toLowerCase();
+
+    const img = document.createElement('img');
+    img.src = cat.cover || DEFAULT_COVER;
+    img.alt = '';
+    img.loading = 'lazy';
+    img.referrerPolicy = 'no-referrer';
+    // Image cassée (ou pixel vide renvoyé à la place) → pochette par défaut
+    const useDefault = () => { if (!img.src.endsWith(DEFAULT_COVER)) img.src = DEFAULT_COVER; };
+    img.addEventListener('error', useDefault);
+    img.addEventListener('load', () => { if (isBlankImage(img)) useDefault(); });
+    card.appendChild(img);
+
+    const info = document.createElement('span');
+    info.className = 'category-info';
+    const name = document.createElement('span');
+    name.className = 'category-name';
+    name.textContent = cat.name;
+    const count = document.createElement('span');
+    count.className = 'category-count';
+    count.textContent = `${cat.tracks.length} piste${cat.tracks.length > 1 ? 's' : ''}`;
+    info.appendChild(name);
+    info.appendChild(count);
+    card.appendChild(info);
+
+    card.addEventListener('click', () => {
+      selectCategory(i);
+      closeCategoryModal();
+    });
+    categoryGrid.appendChild(card);
   });
 
-  categorySelect.addEventListener('change', () => {
-    const val = categorySelect.value;
-    if (val === '') return;
-    selectCategory(parseInt(val));
+  categoryBtn.addEventListener('click', openCategoryModal);
+  document.getElementById('category-close').addEventListener('click', closeCategoryModal);
+  categoryModal.addEventListener('click', e => { if (e.target === categoryModal) closeCategoryModal(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !categoryModal.hidden) closeCategoryModal();
   });
+  categorySearch.addEventListener('input', filterCategories);
+
+  // Mode d'affichage : images ou texte (mémorisé dans le navigateur)
+  // Texte par défaut ; Images seulement si l'utilisateur l'a choisi
+  let savedView = 'text';
+  try { savedView = localStorage.getItem('nevradio-view') || 'text'; } catch (e) {}
+  setCategoryView(savedView);
+  document.querySelectorAll('#category-view button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setCategoryView(btn.dataset.view);
+      try { localStorage.setItem('nevradio-view', btn.dataset.view); } catch (e) {}
+    });
+  });
+}
+
+function setCategoryView(view) {
+  categoryGrid.classList.toggle('text-mode', view === 'text');
+  document.querySelectorAll('#category-view button').forEach(btn => {
+    const on = btn.dataset.view === view;
+    btn.classList.toggle('on', on);
+    btn.setAttribute('aria-pressed', on);
+  });
+}
+
+function filterCategories() {
+  const q = categorySearch.value.trim().toLowerCase();
+  let visible = 0;
+  categoryGrid.querySelectorAll('.category-card').forEach(card => {
+    const match = card.dataset.name.includes(q);
+    card.hidden = !match;
+    if (match) visible++;
+  });
+  categoryEmpty.hidden = visible > 0;
+}
+
+function openCategoryModal() {
+  categoryModal.hidden = false;
+  categorySearch.value = '';
+  filterCategories();
+  categoryGrid.querySelectorAll('.category-card').forEach(card => {
+    card.classList.toggle('active', Number(card.dataset.index) === currentCategory);
+  });
+  if (!isMobile()) categorySearch.focus();
+}
+
+function closeCategoryModal() {
+  categoryModal.hidden = true;
+  categoryBtn.focus();
+}
+
+// ── Pochette ───────────────────────────────────────────
+const DEFAULT_COVER = 'asset/img/default-cover.svg';
+
+// Certains hébergeurs renvoient un pixel transparent au lieu d'une erreur
+function isBlankImage(img) {
+  return !img.src.endsWith(DEFAULT_COVER) && (img.naturalWidth < 10 || img.naturalHeight < 10);
+}
+
+function setArtCover(url) {
+  artBox.style.backgroundImage    = `url('${url}')`;
+  artBox.style.backgroundSize     = '100% 100%';
+  artBox.style.backgroundPosition = 'center';
+  artIcon.style.display = 'none';
 }
 
 // ── Sélectionne une catégorie ──────────────────────────
 function selectCategory(index) {
   currentCategory = index;
   const cat = CATEGORIES[index];
+  categoryBtnLabel.textContent = cat.name;
   document.getElementById('version-tag').classList.add('hidden');
 
-  // Mise à jour de la pochette
+  // Mise à jour de la pochette (pochette par défaut si absente ou cassée)
+  setArtCover(cat.cover || DEFAULT_COVER);
   if (cat.cover) {
-    artBox.style.backgroundImage    = `url('${cat.cover}')`;
-    artBox.style.backgroundSize     = '100% 100%';
-    artBox.style.backgroundPosition = 'center';
-    artIcon.style.display = 'none';
-  } else {
-    artBox.style.backgroundImage = '';
-    artIcon.style.display = '';
+    const probe = new Image();
+    const fallback = () => { if (currentCategory === index) setArtCover(DEFAULT_COVER); };
+    probe.onerror = fallback;
+    probe.onload  = () => { if (isBlankImage(probe)) fallback(); };
+    probe.src = cat.cover;
   }
 
   trackList.innerHTML = '';
@@ -858,6 +959,16 @@ btnLoop.addEventListener('click', () => {
   btnLoop.classList.toggle('on', loopMode);
 });
 btnShuffle.addEventListener('click', toggleShuffle);
+
+// ── Mobile : hauteur du menu de lecture fixe ───────────
+// Sert à arrêter la liste des pistes juste au-dessus du menu.
+const playbackBar = document.getElementById('playback-controls');
+function updateBarHeight() {
+  document.documentElement.style.setProperty('--bar-h', playbackBar.offsetHeight + 'px');
+}
+if ('ResizeObserver' in window) new ResizeObserver(updateBarHeight).observe(playbackBar);
+window.addEventListener('resize', updateBarHeight);
+updateBarHeight();
 
 // ── Init ───────────────────────────────────────────────
 document.getElementById('version-tag').textContent = VERSION;

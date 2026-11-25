@@ -31,11 +31,11 @@
         </div>
       </div>
 
-      <!-- Bande colorée : sélecteur de catégorie intégré -->
+      <!-- Bande colorée : ouvre le sélecteur de catégorie -->
       <div id="art-label">
-        <select id="category-select">
-          <option value="">— NevRadio —</option>
-        </select>
+        <button id="category-btn" type="button" aria-haspopup="dialog" aria-controls="category-modal">
+          <span id="category-btn-label">Sélectionner une catégorie</span>
+        </button>
       </div>
 
       <!-- Liste des pistes -->
@@ -65,6 +65,23 @@
 
     </div>
 
+  </div>
+
+  <!-- ══ Sélecteur de catégorie (cartes) ══ -->
+  <div id="category-modal" hidden>
+    <div id="category-panel" role="dialog" aria-modal="true" aria-labelledby="category-modal-title">
+      <div id="category-header">
+        <h2 id="category-modal-title">Sélectionner une catégorie</h2>
+        <div id="category-view" role="group" aria-label="Mode d'affichage">
+          <button type="button" data-view="image" title="Affichage par images">▦ Images</button>
+          <button type="button" data-view="text"  title="Affichage par texte">☰ Texte</button>
+        </div>
+        <button id="category-close" type="button" title="Fermer" aria-label="Fermer">✕</button>
+      </div>
+      <input id="category-search" type="search" placeholder="Rechercher…" autocomplete="off">
+      <div id="category-grid"></div>
+      <p id="category-empty" hidden>Aucune catégorie trouvée</p>
+    </div>
   </div>
 
   <script src="asset/js/app.js"></script>
